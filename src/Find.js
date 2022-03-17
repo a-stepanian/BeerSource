@@ -56,11 +56,22 @@ const usStates = [
   "Wyoming",
 ];
 
-const Find = ({ handleSubmit, city, setCity, state, setState }) => {
+const Find = ({ handleSubmit, city, setCity, state, setState, isError }) => {
   return (
     <main className="findMain">
-      <h2>Find beer you love</h2>
-      <h2>at the source</h2>
+      {isError ? (
+        <>
+          <h2>No breweries found</h2>
+          <h2>Please try again</h2>
+        </>
+      ) : (
+        <>
+          {" "}
+          <h2>Find beer you love</h2>
+          <h2>at the source</h2>{" "}
+        </>
+      )}
+
       <div className="divider"></div>
       <form onSubmit={handleSubmit}>
         <div className="cityInput">

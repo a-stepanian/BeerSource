@@ -11,6 +11,7 @@ const App = () => {
   const [isList, setIsList] = useState(false);
   const [isMap, setIsMap] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [breweries, setBreweries] = useState([]);
@@ -18,7 +19,7 @@ const App = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-
+    setIsError(false);
     const citySearch = city.split(" ").join("_");
     const stateSearch = state.split(" ").join("_");
 
@@ -45,20 +46,15 @@ const App = () => {
     setBreweries([...breweries, ...breweries2, ...breweries3, ...breweries4]);
     setCity("");
     setState("");
-    setIsSearch(false);
-    setIsList(true);
 
-    // if (breweries.length > 0) {
-    //   setBreweries(breweries);
-    //   setCity("");
-    //   setState("");
-    //   setIsSearch(false);
-    //   setIsList(true);
-    // } else {
-    //   setBreweries([]);
-    //   setCity("");
-    //   setState("");
-    // }
+    if (breweries.length > 0) {
+      setIsSearch(false);
+      setIsList(true);
+    } else {
+      setIsSearch(true);
+      setIsList(false);
+      setIsError(true);
+    }
     setIsLoading(false);
   };
 
@@ -98,6 +94,7 @@ const App = () => {
           setCity={setCity}
           state={state}
           setState={setState}
+          isError={isError}
         />
       )}
 
