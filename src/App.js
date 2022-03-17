@@ -1,63 +1,9 @@
 import React, { useState } from "react";
 import Breweries from "./Breweries";
 import Loading from "./Loading";
+import Find from "./Find";
 
 const url = "https://api.openbrewerydb.org/breweries?by_city=";
-
-const usStates = [
-  "",
-  "Alabama",
-  "Alaska",
-  "Arizona",
-  "Arkansas",
-  "California",
-  "Colorado",
-  "Connecticut",
-  "Delaware",
-  "District of Columbia",
-  "Florida",
-  "Georgia",
-  "Hawaii",
-  "Idaho",
-  "Illinois",
-  "Indiana",
-  "Iowa",
-  "Kansas",
-  "Kentucky",
-  "Louisiana",
-  "Maine",
-  "Maryland",
-  "Massachusetts",
-  "Michigan",
-  "Minnesota",
-  "Mississippi",
-  "Missouri",
-  "Montana",
-  "Nebraska",
-  "Nevada",
-  "New Hampshire",
-  "New Jersey",
-  "New Mexico",
-  "New York",
-  "North Carolina",
-  "North Dakota",
-  "Ohio",
-  "Oklahoma",
-  "Oregon",
-  "Pennsylvania",
-  "Rhode Island",
-  "South Carolina",
-  "South Dakota",
-  "Tennessee",
-  "Texas",
-  "Utah",
-  "Vermont",
-  "Virginia",
-  "Washington",
-  "West Virginia",
-  "Wisconsin",
-  "Wyoming",
-];
 
 const App = () => {
   const [city, setCity] = useState("");
@@ -74,8 +20,18 @@ const App = () => {
     const stateSearch = state.split(" ").join("_");
     const response = await fetch(`${url}${citySearch}&by_state=${stateSearch}`);
     const breweries = await response.json();
-    setBreweries(breweries);
-    setIsLoading(false);
+    if (breweries.length > 0) {
+      setBreweries(breweries);
+      setCity("");
+      setState("");
+      setIsLoading(false);
+    } else {
+      setBreweries([]);
+      setCity("");
+      setState("");
+      setIsLoading(false);
+      setIsBlank(true);
+    }
   };
 
   if (isLoading) {
@@ -85,33 +41,17 @@ const App = () => {
   return (
     <>
       <header>
-        <h1>BeerSource</h1>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="city">City: </label>
-          <input
-            type="text"
-            id="city"
-            name="city"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-          />
-          <br />
-          <label htmlFor="state">State: </label>
-          <select
-            id="state"
-            name="state"
-            value={state}
-            onChange={(e) => setState(e.target.value)}
-          >
-            {usStates.map((state) => (
-              <option value={state}>{state}</option>
-            ))}
-          </select>
-          <button type="submit">Find Beers</button>
-        </form>
+        <h1>&#127866;BeerSource</h1>
+        <button onClick={() => setIsBlank(true)}>Find Beers</button>
       </header>
       {isBlank ? (
-        <h1>search for beer!</h1>
+        <Find
+          handleSubmit={handleSubmit}
+          city={city}
+          setCity={setCity}
+          state={state}
+          setState={setState}
+        />
       ) : (
         <main>
           <Breweries breweries={breweries} />
