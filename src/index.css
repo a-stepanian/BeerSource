@@ -45,12 +45,14 @@ button:active {
   box-shadow: 2px 2px 1px var(--pilsner);
 }
 
+/* MAPBOX MAP */
 .map {
   margin-top: 60px;
 }
 
 .map-container {
-  height: 400px;
+  height: calc(100vh - 60px);
+  overflow: hidden;
 }
 
 @media (min-width: 480px) {

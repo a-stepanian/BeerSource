@@ -23,43 +23,26 @@ const App = () => {
     const stateSearch = state.split(" ").join("_");
 
     const response = await fetch(
-      `${url}${citySearch}&by_state=${stateSearch}&page=1`
+      `${url}${citySearch}&by_state=${stateSearch}&per_page=50&page=1`
     );
     const breweries = await response.json();
 
     const response2 = await fetch(
-      `${url}${citySearch}&by_state=${stateSearch}&page=2`
+      `${url}${citySearch}&by_state=${stateSearch}&per_page=50&page=2`
     );
     const breweries2 = await response2.json();
 
     const response3 = await fetch(
-      `${url}${citySearch}&by_state=${stateSearch}&page=3`
+      `${url}${citySearch}&by_state=${stateSearch}&per_page=50&page=3`
     );
     const breweries3 = await response3.json();
 
     const response4 = await fetch(
-      `${url}${citySearch}&by_state=${stateSearch}&page=4`
+      `${url}${citySearch}&by_state=${stateSearch}&per_page=50&page=4`
     );
     const breweries4 = await response4.json();
 
-    const response5 = await fetch(
-      `${url}${citySearch}&by_state=${stateSearch}&page=5`
-    );
-    const breweries5 = await response5.json();
-
-    const response6 = await fetch(
-      `${url}${citySearch}&by_state=${stateSearch}&page=6`
-    );
-    const breweries6 = await response6.json();
-
-    setBreweries([
-      ...breweries,
-      ...breweries2,
-      ...breweries3,
-      ...breweries4,
-      ...breweries5,
-      ...breweries6,
-    ]);
+    setBreweries([...breweries, ...breweries2, ...breweries3, ...breweries4]);
     setCity("");
     setState("");
     setIsSearch(false);
