@@ -1,0 +1,18 @@
+.breweriesMain {
+  display: flex;
+  height: 100vh;
+}
+.breweries {
+  width: 100%;
+  background-color: var(--pilsner);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 60px;
+  overflow-y: scroll;
+  justify-content: center;
+}
+
+.breweriesMain nav {
+  width: 100%;
+}

@@ -1,5 +1,51 @@
-article {
-  background: url("https://images.unsplash.com/photo-1555424221-250de2a343ad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2062&q=80");
-  background-size: cover;
-  background-position: center;
+.breweryCard {
+  width: 90%;
+  background-color: var(--light-pilsner);
+  margin: 10px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 5px;
+  color: black;
+  text-decoration: none;
+}
+
+.breweryCard h2 {
+  border-radius: 5px 5px 0 0;
+  text-align: center;
+  font-size: 1.3rem;
+  color: black;
+  background-color: var(--foam);
+}
+.breweryCard:hover h2 {
+  text-decoration: underline;
+}
+
+.breweryCard p {
+  margin: 5px;
+}
+
+@media (min-width: 480px) {
+  .breweryCard {
+    width: 70%;
+  }
+}
+
+@media (min-width: 768px) {
+  .breweryCard {
+    width: 45%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .breweryCard {
+    width: 45%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .breweryCard {
+    width: 35%;
+  }
 }

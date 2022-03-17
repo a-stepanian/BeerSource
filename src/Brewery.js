@@ -16,15 +16,14 @@ const Brewery = ({ brewery }) => {
     website_url,
   } = brewery;
   return (
-    <article>
-      <a href={website_url}>{name}</a>
+    <a className="breweryCard" href={website_url} target="_blank">
+      <h2>{name}</h2>
       <p>
         {street}
         <br />
         {city}, {state} {postal_code.slice(0, 5)}
       </p>
-      <h3>{phone}</h3>
-    </article>
+    </a>
   );
 };
 

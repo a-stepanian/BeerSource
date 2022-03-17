@@ -67,6 +67,8 @@ const Find = ({ handleSubmit, city, setCity, state, setState }) => {
           <label htmlFor="city">City: </label>
           <input
             type="text"
+            autoComplete="off"
+            autoFocus
             id="city"
             name="city"
             value={city}
@@ -87,7 +89,7 @@ const Find = ({ handleSubmit, city, setCity, state, setState }) => {
           </select>
         </div>
 
-        <button type="submit">Find Beers</button>
+        <button type="submit">Go!</button>
       </form>
     </main>
   );

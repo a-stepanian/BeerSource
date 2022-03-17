@@ -42,7 +42,7 @@ const App = () => {
     <>
       <header>
         <h1>&#127866;BeerSource</h1>
-        <button onClick={() => setIsBlank(true)}>Find Beers</button>
+        <button onClick={() => setIsBlank(true)}>&#128269;</button>
       </header>
       {isBlank ? (
         <Find
@@ -53,7 +53,7 @@ const App = () => {
           setState={setState}
         />
       ) : (
-        <main>
+        <main className="breweriesMain">
           <Breweries breweries={breweries} />
         </main>
       )}
