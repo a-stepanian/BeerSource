@@ -72,6 +72,7 @@ const Find = ({ handleSubmit, city, setCity, state, setState }) => {
             id="city"
             name="city"
             value={city}
+            required
             onChange={(e) => setCity(e.target.value)}
           />
         </div>
@@ -80,6 +81,7 @@ const Find = ({ handleSubmit, city, setCity, state, setState }) => {
           <select
             id="state"
             name="state"
+            required
             value={state}
             onChange={(e) => setState(e.target.value)}
           >
