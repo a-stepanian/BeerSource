@@ -83,8 +83,10 @@ const Find = ({ handleSubmit, city, setCity, state, setState }) => {
             value={state}
             onChange={(e) => setState(e.target.value)}
           >
-            {usStates.map((state) => (
-              <option value={state}>{state}</option>
+            {usStates.map((state, index) => (
+              <option key={index} value={state}>
+                {state}
+              </option>
             ))}
           </select>
         </div>

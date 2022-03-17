@@ -3,7 +3,7 @@ import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-load
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
-const Map = () => {
+const Map = ({ setIsLoading }) => {
   // from mapbox ---------------------------
   const mapContainer = useRef(null);
   const map = useRef(null);
@@ -12,6 +12,7 @@ const Map = () => {
   const [zoom, setZoom] = useState(9);
 
   useEffect(() => {
+    setIsLoading(true);
     if (map.current) return; // initialize map only once
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
@@ -19,6 +20,7 @@ const Map = () => {
       center: [lng, lat],
       zoom: zoom,
     });
+    setIsLoading(false);
   });
   //----------------------------------------
 
