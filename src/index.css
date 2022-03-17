@@ -9,6 +9,10 @@
   --foam: rgb(255, 252, 233);
   --pilsner: rgb(209, 170, 69);
 }
+body {
+  display: flex;
+  flex-direction: column;
+}
 
 header {
   position: fixed;
@@ -35,4 +39,12 @@ header button:hover,
 button:active {
   transform: translate(-2px, -2px);
   box-shadow: 2px 2px 1px var(--pilsner);
+}
+
+.map {
+  margin-top: 60px;
+}
+
+.map-container {
+  height: 400px;
 }
