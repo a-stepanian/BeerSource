@@ -15,6 +15,8 @@ const App = () => {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [breweries, setBreweries] = useState([]);
+  const [lng, setLng] = useState(null);
+  const [lat, setLat] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,6 +29,25 @@ const App = () => {
       `${url}${citySearch}&by_state=${stateSearch}&per_page=50&page=1`
     );
     const breweries = await response.json();
+
+    if (breweries.length === 0) {
+      setIsSearch(true);
+      setIsList(false);
+      setIsError(true);
+      setCity("");
+      setState("");
+      setBreweries([]);
+      setIsLoading(false);
+      return;
+    }
+
+    for (let i = 0; i < breweries.length; i++) {
+      if (breweries[i].latitude && breweries[i].latitude) {
+        setLat(Number(breweries[i].latitude));
+        setLng(Number(breweries[i].longitude));
+        break;
+      }
+    }
 
     const response2 = await fetch(
       `${url}${citySearch}&by_state=${stateSearch}&per_page=50&page=2`
@@ -46,21 +67,10 @@ const App = () => {
     setBreweries([...breweries, ...breweries2, ...breweries3, ...breweries4]);
     setCity("");
     setState("");
-
-    if (breweries.length > 0) {
-      setIsSearch(false);
-      setIsList(true);
-    } else {
-      setIsSearch(true);
-      setIsList(false);
-      setIsError(true);
-    }
+    setIsSearch(false);
     setIsLoading(false);
+    setIsMap(true);
   };
-
-  if (isLoading) {
-    return <Loading />;
-  }
 
   return (
     <>
@@ -72,6 +82,7 @@ const App = () => {
               setIsSearch(false);
               setIsList(false);
               setIsMap(true);
+              setIsLoading(false);
             }}
           >
             &#127758;
@@ -80,12 +91,16 @@ const App = () => {
             onClick={() => {
               setIsMap(false);
               setIsSearch(true);
+              setIsError(false);
+              setIsLoading(false);
             }}
           >
             &#128269;
           </button>
         </nav>
       </header>
+
+      {isLoading && <Loading />}
 
       {isSearch && (
         <Find
@@ -104,7 +119,14 @@ const App = () => {
         </main>
       )}
 
-      {isMap && <Map setIsLoading={setIsLoading} />}
+      {isMap && (
+        <Map
+          setIsLoading={setIsLoading}
+          lat={lat}
+          lng={lng}
+          breweries={breweries}
+        />
+      )}
     </>
   );
 };

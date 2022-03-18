@@ -18,6 +18,8 @@ const Brewery = ({ brewery }) => {
   return (
     <a className="breweryCard" href={website_url} target="_blank">
       <h2>{name}</h2>
+      <h3>latitude: {latitude}</h3>
+      <h3>longitude: {longitude}</h3>
       <p>
         {street}
         <br />
