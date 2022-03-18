@@ -3,22 +3,11 @@ import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-load
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
-const point = {
-  type: "Feature",
-  geometry: {
-    type: "Point",
-    coordinates: [125.6, 10.1],
-  },
-  properties: {
-    name: "Dinagat Islands",
-  },
-};
-
 const Map = ({ setIsLoading, lat, lng, breweries }) => {
   // from mapbox ---------------------------
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [zoom, setZoom] = useState(10);
+  const [zoom, setZoom] = useState(12);
 
   useEffect(() => {
     setIsLoading(true);
@@ -29,8 +18,12 @@ const Map = ({ setIsLoading, lat, lng, breweries }) => {
       center: [lng, lat],
       zoom: zoom,
     });
-    // Map over each brewery and create a new marker.
 
+    // Add navigation controls
+    const nav = new mapboxgl.NavigationControl();
+    map.current.addControl(nav, "top-left");
+
+    // Map over each brewery and create a new marker.
     breweries.map((brewery) => {
       const marker = new mapboxgl.Marker({
         color: "rgb(209, 170, 69)",

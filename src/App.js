@@ -41,13 +41,20 @@ const App = () => {
       return;
     }
 
+    // Get average location coordinates and set lat/long for centering the map
+    let sumLat = 0;
+    let sumLng = 0;
+    let count = 0;
+
     for (let i = 0; i < breweries.length; i++) {
       if (breweries[i].latitude && breweries[i].latitude) {
-        setLat(Number(breweries[i].latitude));
-        setLng(Number(breweries[i].longitude));
-        break;
+        sumLat += Number(breweries[i].latitude);
+        sumLng += Number(breweries[i].longitude);
+        count++;
       }
     }
+    setLat(sumLat / count);
+    setLng(sumLng / count);
 
     const response2 = await fetch(
       `${url}${citySearch}&by_state=${stateSearch}&per_page=50&page=2`
