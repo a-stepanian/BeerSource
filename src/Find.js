@@ -72,7 +72,6 @@ const Find = ({ handleSubmit, city, setCity, state, setState, isError }) => {
         </>
       )}
 
-      <div className="divider"></div>
       <form onSubmit={handleSubmit}>
         <div className="cityInput">
           <label htmlFor="city">City: </label>
