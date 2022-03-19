@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/brewery-finder/static/css/main.2aa25cac.css",
+    "main.js": "/brewery-finder/static/js/main.3919060b.js",
+    "index.html": "/brewery-finder/index.html",
+    "main.2aa25cac.css.map": "/brewery-finder/static/css/main.2aa25cac.css.map",
+    "main.3919060b.js.map": "/brewery-finder/static/js/main.3919060b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2aa25cac.css",
+    "static/js/main.3919060b.js"
+  ]
+}
