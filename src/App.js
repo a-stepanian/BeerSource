@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import Breweries from "./Breweries";
+import List from "./List";
 import Loading from "./Loading";
 import Find from "./Find";
 import Map from "./Map";
@@ -86,23 +86,14 @@ const App = () => {
         <nav className="navButtons">
           <button
             onClick={() => {
-              setIsSearch(false);
-              setIsList(false);
-              setIsMap(true);
-              setIsLoading(false);
-            }}
-          >
-            &#127758;
-          </button>
-          <button
-            onClick={() => {
               setIsMap(false);
+              setIsList(false);
               setIsSearch(true);
               setIsError(false);
               setIsLoading(false);
             }}
           >
-            &#128269;
+            Search &#128269;
           </button>
         </nav>
       </header>
@@ -122,13 +113,24 @@ const App = () => {
 
       {isList && (
         <main className="breweriesMain">
-          <Breweries breweries={breweries} />
+          <List
+            breweries={breweries}
+            setIsLoading={setIsLoading}
+            setIsMap={setIsMap}
+            setIsList={setIsList}
+            setIsSearch={setIsSearch}
+          />
         </main>
       )}
 
       {isMap && (
         <Map
           setIsLoading={setIsLoading}
+          isMap={isMap}
+          setIsMap={setIsMap}
+          setIsList={setIsList}
+          setIsError={setIsError}
+          setIsSearch={setIsSearch}
           lat={lat}
           lng={lng}
           breweries={breweries}
