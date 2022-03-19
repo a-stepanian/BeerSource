@@ -4,7 +4,17 @@ import "./map.css";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
-const Map = ({ setIsLoading, lat, lng, breweries }) => {
+const Map = ({
+  setIsLoading,
+  setIsMap,
+  isMap,
+  setIsList,
+  setIsError,
+  setIsSearch,
+  lat,
+  lng,
+  breweries,
+}) => {
   // from mapbox ---------------------------
   const mapContainer = useRef(null);
   const map = useRef(null);
@@ -26,13 +36,13 @@ const Map = ({ setIsLoading, lat, lng, breweries }) => {
 
     // Map over each brewery and create a new marker with brewery info in popup
     breweries.map((brewery) => {
-      const { name, website_url } = brewery;
+      const { name, website_url, street } = brewery;
 
       // create the popup
       const popup = new mapboxgl.Popup({
         maxWidth: "none",
       }).setHTML(
-        `<a href="${website_url}" target="_blank"><h1>${name}<h1></a>`
+        `<a href="${website_url}" target="_blank"><h1>${name}<h1></a><p>${street}</p>`
       );
 
       const marker = new mapboxgl.Marker({
@@ -53,6 +63,19 @@ const Map = ({ setIsLoading, lat, lng, breweries }) => {
       <div className="map">
         <div ref={mapContainer} className="map-container" />
       </div>
+
+      <button
+        className="list"
+        onClick={() => {
+          setIsMap(false);
+          setIsSearch(false);
+          setIsError(false);
+          setIsLoading(false);
+          setIsList(true);
+        }}
+      >
+        List View &#128196;
+      </button>
     </>
   );
 };

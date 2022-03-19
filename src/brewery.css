@@ -2,7 +2,6 @@
   width: 90%;
   background-color: var(--light-pilsner);
   margin: 10px;
-  height: 120px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -18,8 +17,13 @@
   color: black;
   background-color: var(--foam);
 }
-.breweryCard:hover h2 {
-  text-decoration: underline;
+.breweryCard:hover {
+  background-color: goldenrod;
+}
+
+.breweryCard a,
+h3 {
+  color: black;
 }
 
 .breweryCard p {
@@ -40,12 +44,12 @@
 
 @media (min-width: 1024px) {
   .breweryCard {
-    width: 45%;
+    width: 35%;
   }
 }
 
 @media (min-width: 1280px) {
   .breweryCard {
-    width: 35%;
+    width: 30%;
   }
 }

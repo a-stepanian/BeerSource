@@ -1,3 +1,29 @@
+/* MAPBOX MAP */
+.map {
+  margin-top: 60px;
+}
+
+.map-container {
+  height: calc(100vh - 60px);
+  overflow: hidden;
+}
+
+.list {
+  background-color: goldenrod;
+  font-size: 1.3rem;
+  font-weight: 900;
+  width: fit-content;
+  padding: 5px;
+  position: absolute;
+  border-radius: 5px;
+  border: 3px solid black;
+  bottom: 20px;
+  right: 20px;
+}
+.list:hover {
+  cursor: pointer;
+}
+
 .mapboxgl-popup-content {
   background-color: rgb(214, 180, 94);
   border: 3px solid rgb(99, 62, 19);
