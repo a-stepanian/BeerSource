@@ -1,11 +1,40 @@
-take form input and split at space and join with underscore to fetch api data for multiple word cities.
+# About BeerSource!
 
-make state input field because searching buffalo showed there are multiple states with that city.
+## Website
 
-find array of state names online and use it to map the options for the state select in the form.
+Check out the website in action:
 
-mapbox is completely different with react, have to comb through docs to use it. Also learned that environmental varibles are handled differently in react.
+https://a-stepanian.github.io/brewery-finder/
 
-getting error in console from not including a key in the option tags in the find component. Added index for the mapping. This was because of iterating over an array.
+## Screenshots
 
-api returns 20 at a time, so need to dynamically determine if there is more data and then display a next page button.
+### Mobile-first design
+
+![](./public/screenshots/mobile1.jpg)
+![](./public/screenshots/mobile2.jpg)
+![](./public/screenshots/mobile3.jpg)
+
+### Responsive for all screen sizes
+
+![](./public/screenshots/desktop1.jpg)
+![](./public/screenshots/desktop2.jpg)
+
+### Loading and error states
+
+![](./public/screenshots/loading.jpg)
+
+## Random Notes to clean up later
+
+-take form input and split at space and join with underscore to fetch api data for multiple word cities.
+
+-make state input field because there are multiple states with the same city name.
+
+-find array of state names online and use it to map the options for the state select in the form.
+
+-mapbox is a bit different with react, had to spend a few hours combing through docs to use it. Also learned that environmental varibles are handled differently in react.
+
+-getting error in console from not including a key in the option tags in the find component. Added index for the mapping. This was because of iterating over an array.
+
+-api returns 20 breweries at a time, so needed to dynamically fetch additional data if it exists.
+
+-console.log not working in any of the components.
