@@ -22,6 +22,7 @@ const App = () => {
   const [lat, setLat] = useState(null);
 
   // Submit handler for brewery search
+  // FIX ERROR WITH MULTIPLE SPACES IN BETWEEN WORDS
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -133,7 +134,7 @@ const App = () => {
         />
       )}
 
-      {isSearchRecipe && <Findrecipe />}
+      {isSearchRecipe && <Findrecipe setIsLoading={setIsLoading} />}
     </>
   );
 };

@@ -11,7 +11,7 @@ const Navbar = ({
   const [show, setShow] = useState(false);
 
   return (
-    <header>
+    <header className="navbarHeader">
       <div className="navbar">
         <h1>&#127866;BeerSource</h1>
         <button className="menuIcon" onClick={() => setShow(!show)}>
