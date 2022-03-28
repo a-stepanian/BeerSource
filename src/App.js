@@ -3,6 +3,8 @@ import List from "./List";
 import Loading from "./Loading";
 import Find from "./Find";
 import Map from "./Map";
+import Navbar from "./Navbar";
+import Findrecipe from "./Findrecipe";
 
 const url = "https://api.openbrewerydb.org/breweries?by_city=";
 
@@ -10,6 +12,7 @@ const App = () => {
   const [isSearch, setIsSearch] = useState(true);
   const [isList, setIsList] = useState(false);
   const [isMap, setIsMap] = useState(false);
+  const [isSearchRecipe, setIsSearchRecipe] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [city, setCity] = useState("");
@@ -18,11 +21,12 @@ const App = () => {
   const [lng, setLng] = useState(null);
   const [lat, setLat] = useState(null);
 
+  // Submit handler for brewery search
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setIsError(false);
-    const citySearch = city.split(" ").join("_");
+    const citySearch = city.trim().split(" ").join("_");
     const stateSearch = state.split(" ").join("_");
 
     const response = await fetch(
@@ -81,22 +85,14 @@ const App = () => {
 
   return (
     <>
-      <header>
-        <h1>&#127866;BeerSource</h1>
-        <nav className="navButtons">
-          <button
-            onClick={() => {
-              setIsMap(false);
-              setIsList(false);
-              setIsSearch(true);
-              setIsError(false);
-              setIsLoading(false);
-            }}
-          >
-            Search &#128269;
-          </button>
-        </nav>
-      </header>
+      <Navbar
+        setIsMap={setIsMap}
+        setIsList={setIsList}
+        setIsSearch={setIsSearch}
+        setIsSearchRecipe={setIsSearchRecipe}
+        setIsError={setIsError}
+        setIsLoading={setIsLoading}
+      />
 
       {isLoading && <Loading />}
 
@@ -136,6 +132,8 @@ const App = () => {
           breweries={breweries}
         />
       )}
+
+      {isSearchRecipe && <Findrecipe />}
     </>
   );
 };
