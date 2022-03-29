@@ -1,0 +1,47 @@
+.hamburger {
+  position: relative;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  margin-right: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: 3px solid var(--pilsner);
+}
+
+.bar {
+  position: absolute;
+  width: 30px;
+  left: 5px;
+  border-bottom: 3px solid var(--pilsner);
+  transition: 0.2s;
+}
+
+.topClosed {
+  top: 10px;
+}
+
+.bottomClosed {
+  top: 30px;
+}
+
+.topOpen {
+  top: -3px;
+}
+
+.bottomOpen {
+  top: 40px;
+}
+
+.leftXOpen {
+  transform: rotate(45deg);
+}
+.rightXOpen {
+  transform: rotate(-45deg);
+}
+
+@media (min-width: 600px) {
+  .hamburger {
+    display: none;
+  }
+}
