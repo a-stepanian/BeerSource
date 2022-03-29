@@ -1,18 +1,18 @@
 import React, { useState, useRef, useEffect } from "react";
-import List from "./List";
+import List from "./ListPage";
 import Loading from "./Loading";
-import Find from "./Find";
-import Map from "./Map";
+import BrewerySearchPage from "./BrewerySearchPage";
+import Map from "./MapPage";
 import Navbar from "./Navbar";
-import Findrecipe from "./Findrecipe";
+import RecipePage from "./RecipePage";
 
 const url = "https://api.openbrewerydb.org/breweries?by_city=";
 
 const App = () => {
-  const [isSearch, setIsSearch] = useState(true);
-  const [isList, setIsList] = useState(false);
-  const [isMap, setIsMap] = useState(false);
-  const [isSearchRecipe, setIsSearchRecipe] = useState(false);
+  const [showBrewerySearchPage, setShowBrewerySearchPage] = useState(true);
+  const [showMapPage, setShowMapPage] = useState(false);
+  const [showListPage, setShowListPage] = useState(false);
+  const [showRecipePage, setShowRecipePage] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [city, setCity] = useState("");
@@ -36,8 +36,8 @@ const App = () => {
     const breweries = await response.json();
 
     if (breweries.length === 0) {
-      setIsSearch(true);
-      setIsList(false);
+      setShowBrewerySearchPage(true);
+      setShowListPage(false);
       setIsError(true);
       setCity("");
       setState("");
@@ -79,26 +79,26 @@ const App = () => {
     setBreweries([...breweries, ...breweries2, ...breweries3, ...breweries4]);
     setCity("");
     setState("");
-    setIsSearch(false);
+    setShowBrewerySearchPage(false);
     setIsLoading(false);
-    setIsMap(true);
+    setShowMapPage(true);
   };
 
   return (
     <>
       <Navbar
-        setIsMap={setIsMap}
-        setIsList={setIsList}
-        setIsSearch={setIsSearch}
-        setIsSearchRecipe={setIsSearchRecipe}
+        setShowMapPage={setShowMapPage}
+        setShowListPage={setShowListPage}
+        setShowBrewerySearchPage={setShowBrewerySearchPage}
+        setShowRecipePage={setShowRecipePage}
         setIsError={setIsError}
         setIsLoading={setIsLoading}
       />
 
       {isLoading && <Loading />}
 
-      {isSearch && (
-        <Find
+      {showBrewerySearchPage && (
+        <BrewerySearchPage
           handleSubmit={handleSubmit}
           city={city}
           setCity={setCity}
@@ -108,33 +108,33 @@ const App = () => {
         />
       )}
 
-      {isList && (
+      {showListPage && (
         <main className="breweriesMain">
           <List
             breweries={breweries}
             setIsLoading={setIsLoading}
-            setIsMap={setIsMap}
-            setIsList={setIsList}
-            setIsSearch={setIsSearch}
+            setShowMapPage={setShowMapPage}
+            setShowListPage={setShowListPage}
+            setShowBrewerySearchPage={setShowBrewerySearchPage}
           />
         </main>
       )}
 
-      {isMap && (
+      {showMapPage && (
         <Map
           setIsLoading={setIsLoading}
-          isMap={isMap}
-          setIsMap={setIsMap}
-          setIsList={setIsList}
+          showMapPage={showMapPage}
+          setShowMapPage={setShowMapPage}
+          setShowListPage={setShowListPage}
           setIsError={setIsError}
-          setIsSearch={setIsSearch}
+          setShowBrewerySearchPage={setShowBrewerySearchPage}
           lat={lat}
           lng={lng}
           breweries={breweries}
         />
       )}
 
-      {isSearchRecipe && <Findrecipe setIsLoading={setIsLoading} />}
+      {showRecipePage && <RecipePage setIsLoading={setIsLoading} />}
     </>
   );
 };

@@ -38,3 +38,5 @@ https://a-stepanian.github.io/brewery-finder/
 -api returns 20 breweries at a time, so needed to dynamically fetch additional data if it exists.
 
 -console.log not working in any of the components.
+
+-drop down menu doesn't work with map feature, had to make map z-index -1.

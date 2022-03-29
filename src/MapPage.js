@@ -1,16 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
-import "./map.css";
+import "./mapPage.css";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
-const Map = ({
+const MapPage = ({
   setIsLoading,
-  setIsMap,
-  isMap,
-  setIsList,
+  setShowMapPage,
+  setShowListPage,
   setIsError,
-  setIsSearch,
+  setShowBrewerySearchPage,
   lat,
   lng,
   breweries,
@@ -67,11 +66,11 @@ const Map = ({
       <button
         className="list"
         onClick={() => {
-          setIsMap(false);
-          setIsSearch(false);
+          setShowMapPage(false);
+          setShowBrewerySearchPage(false);
           setIsError(false);
           setIsLoading(false);
-          setIsList(true);
+          setShowListPage(true);
         }}
       >
         List View &#128196;
@@ -80,4 +79,4 @@ const Map = ({
   );
 };
 
-export default Map;
+export default MapPage;

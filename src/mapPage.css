@@ -1,7 +1,4 @@
 /* MAPBOX MAP */
-.map {
-  margin-top: 60px;
-}
 
 .map-container {
   height: calc(100vh - 60px);

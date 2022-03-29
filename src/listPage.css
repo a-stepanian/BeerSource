@@ -8,7 +8,6 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-top: 60px;
   overflow-y: scroll;
   justify-content: center;
 }

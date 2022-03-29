@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./findrecipe.css";
+import "./recipePage.css";
 
-const Findrecipe = ({ setIsLoading }) => {
+const RecipePage = ({ setIsLoading }) => {
   const [beers, setBeers] = useState([]);
 
   const findRecipes = async () => {
@@ -43,4 +43,4 @@ const Findrecipe = ({ setIsLoading }) => {
   );
 };
 
-export default Findrecipe;
+export default RecipePage;

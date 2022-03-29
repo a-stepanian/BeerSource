@@ -1,47 +1,50 @@
 import React, { useState } from "react";
+import "./navbar.css";
 
 const Navbar = ({
-  setIsMap,
-  setIsList,
-  setIsSearch,
+  setShowMapPage,
+  setShowListPage,
+  setShowBrewerySearchPage,
   setIsError,
   setIsLoading,
-  setIsSearchRecipe,
+  setShowRecipePage,
 }) => {
-  const [show, setShow] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <header className="navbarHeader">
+    <header>
       <div className="navbar">
-        <h1>&#127866;BeerSource</h1>
-        <button className="menuIcon" onClick={() => setShow(!show)}>
+        <h1 className="beerSource">&#127866;BeerSource</h1>
+        <button className="menuButton" onClick={() => setShowMenu(!showMenu)}>
           menu
         </button>
       </div>
-      {show && (
+      {showMenu && (
         <nav className="menu">
           <button
+            className="menuButton"
             onClick={() => {
-              setIsMap(false);
-              setIsList(false);
-              setIsSearch(true);
+              setShowMapPage(false);
+              setShowListPage(false);
+              setShowBrewerySearchPage(true);
               setIsError(false);
               setIsLoading(false);
-              setIsSearchRecipe(false);
-              setShow(!show);
+              setShowRecipePage(false);
+              setShowMenu(!showMenu);
             }}
           >
             Find A Brewery
           </button>
           <button
+            className="menuButton"
             onClick={() => {
-              setIsMap(false);
-              setIsList(false);
-              setIsSearch(false);
+              setShowRecipePage(true);
+              setShowMapPage(false);
+              setShowListPage(false);
+              setShowBrewerySearchPage(false);
               setIsError(false);
               setIsLoading(false);
-              setIsSearchRecipe(true);
-              setShow(!show);
+              setShowMenu(!showMenu);
             }}
           >
             Brew Your Own

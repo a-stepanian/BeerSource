@@ -1,13 +1,13 @@
 import React from "react";
 import Brewery from "./Brewery";
-import "./list.css";
+import "./listPage.css";
 
-const Breweries = ({
+const ListPage = ({
   breweries,
-  setIsSearch,
-  setIsMap,
+  setShowBrewerySearchPage,
+  setShowMapPage,
   setIsLoading,
-  setIsList,
+  setShowListPage,
 }) => {
   return (
     <>
@@ -20,9 +20,9 @@ const Breweries = ({
       <button
         className="list"
         onClick={() => {
-          setIsSearch(false);
-          setIsList(false);
-          setIsMap(true);
+          setShowBrewerySearchPage(false);
+          setShowListPage(false);
+          setShowMapPage(true);
           setIsLoading(false);
         }}
       >
@@ -32,4 +32,4 @@ const Breweries = ({
   );
 };
 
-export default Breweries;
+export default ListPage;

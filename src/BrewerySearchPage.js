@@ -1,5 +1,5 @@
 import React from "react";
-import "./find.css";
+import "./brewerySearchPage.css";
 
 const usStates = [
   "",
