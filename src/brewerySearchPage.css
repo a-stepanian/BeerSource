@@ -11,7 +11,7 @@
   --light-pilsner: rgb(207, 183, 123);
 }
 .findMain {
-  height: 100vh;
+  height: calc(100vh - 60px);
   display: flex;
   flex-direction: column;
   justify-content: center;
