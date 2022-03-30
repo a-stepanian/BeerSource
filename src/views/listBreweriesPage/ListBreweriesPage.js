@@ -36,14 +36,20 @@ const ListBreweriesPage = ({
       ></div>
 
       <section className="breweries">
-        <h2 className="cityName">{city} breweries</h2>
+        <div className="mobileTitle">
+          <h2 className="cityName">{city} breweries</h2>
+          <h3 className="arrow">&#8595;</h3>
+        </div>
+        <div className="desktopTitle">
+          <h2 className="desktopCityName">{city.toUpperCase()}</h2>
+        </div>
         {breweries.map((brewery) => (
           <BreweryCard brewery={brewery} key={brewery.id} />
         ))}
       </section>
       {!showMenu && (
-        <button
-          className="list"
+        <nav
+          className="mapView"
           onClick={() => {
             setShowBrewerySearchPage(false);
             setShowListPage(false);
@@ -51,8 +57,8 @@ const ListBreweriesPage = ({
             setIsLoading(false);
           }}
         >
-          Map View &#127758;
-        </button>
+          <p>&#127758; Back to Map</p>
+        </nav>
       )}
     </main>
   );

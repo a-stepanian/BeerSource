@@ -1,8 +1,8 @@
 .breweryCard {
   z-index: 2;
   width: 90%;
-  background-color: rgba(245, 235, 209, 0.63);
-  margin: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  margin: 10px;
   display: flex;
   flex-direction: column;
   border-radius: 5px;
@@ -17,33 +17,16 @@
   text-align: center;
   font-size: 1.3rem;
   color: black;
-  background-color: var(--foam);
+  background-color: rgba(218, 165, 32, 0.9);
 }
 .breweryCard:hover {
-  background-color: goldenrod;
+  background-color: rgba(255, 255, 255, 0.9);
 }
 
 @media (min-width: 480px) {
   .breweryCard {
-    width: 70%;
-  }
-}
-
-@media (min-width: 768px) {
-  .breweryCard {
-    width: 45%;
-  }
-}
-
-@media (min-width: 1024px) {
-  .breweryCard {
-    width: 35%;
-  }
-}
-
-@media (min-width: 1280px) {
-  .breweryCard {
-    width: 30%;
+    max-width: 420px;
+    margin: 20px 50px;
   }
 }
 

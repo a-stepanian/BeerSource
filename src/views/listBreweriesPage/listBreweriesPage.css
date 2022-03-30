@@ -1,17 +1,19 @@
+/* Contains everything below the navbar */
 .breweriesMain {
   display: flex;
-  flex-direction: column;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 120px);
 }
-.cityName {
+
+/* Fixed background image  of the city*/
+/* background properties are applied dynamically in the js file */
+.cityImage {
+  z-index: 1;
+  position: fixed;
   width: 100%;
-  text-align: center;
-  z-index: 2;
-  margin: 30vh 0 30vh 0;
-  background-color: rgba(255, 255, 255, 0.7);
+  height: calc(100vh - 120px);
 }
+
 .breweries {
-  z-index: 2;
   width: 100%;
   background-color: transparent;
   display: flex;
@@ -21,23 +23,89 @@
   justify-content: center;
 }
 
-.breweriesMain nav {
-  width: 100%;
+.mobileTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.cityImage {
-  z-index: 1;
-  position: fixed;
+.cityName {
   width: 100%;
-  height: calc(100vh - 60px);
+  text-align: center;
+  margin-top: 40vh;
+  padding: 3px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 3px;
 }
 
-.list {
+.mapView,
+.breweries,
+.mobileTitle,
+.desktopTitle {
   z-index: 2;
 }
 
-@media (min-width: 768px) {
-  .cityName {
+.arrow {
+  margin: 15vh 0;
+  font-size: 7rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.mapView {
+  background-color: var(--pilsner);
+  font-weight: 900;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+}
+.mapView:hover {
+  cursor: pointer;
+}
+
+.desktopTitle {
+  display: none;
+}
+
+@media (min-width: 720px) {
+  .breweriesMain {
+    height: calc(100vh - 60px);
+  }
+  .cityImage {
+    height: calc(100vh - 60px);
+  }
+  .mobileTitle {
+    display: none;
+  }
+  .desktopTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+  .desktopTitle h2 {
+    font-size: 8rem;
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  }
+  .mapView {
+    position: absolute;
+    top: 12%;
+    width: 40px;
+    height: 130px;
+    border-radius: 0 5px 5px 0;
+    transition: 0.2s;
+  }
+  .mapView:hover {
+    width: 50px;
+  }
+  .mapView p {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
   }
 }

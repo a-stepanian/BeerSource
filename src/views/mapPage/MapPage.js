@@ -64,7 +64,7 @@ const MapPage = ({
         <div ref={mapContainer} className="map-container" />
       </div>
       {!showMenu && (
-        <button
+        <nav
           className="list"
           onClick={() => {
             setShowMapPage(false);
@@ -74,8 +74,8 @@ const MapPage = ({
             setShowListPage(true);
           }}
         >
-          List View &#128196;
-        </button>
+          &#128196; List View
+        </nav>
       )}
     </>
   );

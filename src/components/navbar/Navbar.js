@@ -75,13 +75,13 @@ const Navbar = ({
           <button
             className="menuButton"
             onClick={() => {
-              setShowRecipePage(true);
+              setIsLoading(true);
               setShowMapPage(false);
               setShowListPage(false);
               setShowBrewerySearchPage(false);
               setIsError(false);
-              setIsLoading(false);
               setShowMenu(!showMenu);
+              setShowRecipePage(true);
             }}
           >
             Brew Your Own
