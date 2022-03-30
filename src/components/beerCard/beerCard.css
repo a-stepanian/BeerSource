@@ -1,0 +1,41 @@
+.recipeCard {
+  padding: 10px;
+  background-color: var(--foam);
+  margin: 20px 0;
+  width: 90%;
+  max-width: 480px;
+  border-radius: 5px;
+}
+
+/* Recipe Card Header */
+.recipeCard header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.beerImage {
+  max-height: 80px;
+}
+
+.recipeCard header .cardTitle {
+  width: 75%;
+}
+
+.recipeCard header h2 {
+  font-size: 1.2rem;
+}
+
+.recipeCard header h3 {
+  color: var(--pilsner);
+  font-size: 0.9rem;
+  margin: 8px 0;
+}
+
+/* Horizonal Divider */
+.recipeCard .line {
+  margin: 20px 0;
+  width: 100%;
+  border-bottom: 3px solid var(--pilsner);
+}

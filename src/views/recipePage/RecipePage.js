@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./recipePage.css";
-import Recipe from "./Recipe";
+import BeerCard from "../../components/beerCard/BeerCard";
 
 const RecipePage = ({ setIsLoading }) => {
   const [beers, setBeers] = useState([]);
@@ -27,7 +27,7 @@ const RecipePage = ({ setIsLoading }) => {
           <h1>Homebrew Receipes</h1>
         </div>
         {beers.map((beer, index) => {
-          return <Recipe key={index} beer={beer} />;
+          return <BeerCard key={index} beer={beer} />;
         })}
       </section>
     </main>

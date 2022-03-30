@@ -1,0 +1,17 @@
+.recipesMain {
+  display: flex;
+  height: calc(100vh - 60px);
+}
+.recipesMain h1 {
+  margin-top: 20px;
+  font-size: 2rem;
+}
+.recipes {
+  width: 100%;
+  background-color: var(--pilsner);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  justify-content: center;
+}

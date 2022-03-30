@@ -1,0 +1,33 @@
+/* Card Body */
+.cardBody {
+  display: flex;
+  flex-direction: column;
+}
+.cardBody h3 {
+  font-size: 1.1rem;
+}
+.description {
+  letter-spacing: 0.3px;
+  line-height: 1.5rem;
+}
+.showMoreButton {
+  white-space: nowrap;
+  padding-left: 10px;
+  letter-spacing: -1px;
+  text-decoration: underline;
+  font-weight: 700;
+}
+.showMoreButton:hover {
+  cursor: pointer;
+}
+.ingredientName {
+  font-weight: 900;
+  font-size: 1rem;
+}
+
+.ingredient {
+  width: 80%;
+  padding: 10px;
+  background-color: blanchedalmond;
+  margin: 10px;
+}

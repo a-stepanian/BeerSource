@@ -1,16 +1,17 @@
 .breweryCard {
   width: 90%;
   background-color: var(--light-pilsner);
-  margin: 10px;
+  margin: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   border-radius: 5px;
   color: black;
   text-decoration: none;
+  padding-bottom: 5px;
 }
 
 .breweryCard h2 {
+  padding: 5px;
   border-radius: 5px 5px 0 0;
   text-align: center;
   font-size: 1.3rem;
@@ -19,15 +20,6 @@
 }
 .breweryCard:hover {
   background-color: goldenrod;
-}
-
-.breweryCard a,
-h3 {
-  color: black;
-}
-
-.breweryCard p {
-  margin: 5px;
 }
 
 @media (min-width: 480px) {
@@ -52,4 +44,31 @@ h3 {
   .breweryCard {
     width: 30%;
   }
+}
+
+.website {
+  margin: 5px 0 0 5px;
+  font-size: 1.3rem;
+  text-decoration: none;
+}
+
+.breweryCard a {
+  width: fit-content;
+}
+
+.link {
+  text-decoration: underline;
+}
+.phone {
+  margin: 5px 0 0 5px;
+  font-size: 1.3rem;
+}
+
+.address {
+  margin: 5px 0 0 5px;
+  font-size: 1.3rem;
+  display: flex;
+}
+.flag {
+  margin-right: 5px;
 }

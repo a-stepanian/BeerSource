@@ -67,7 +67,12 @@
 }
 
 .findMain button:hover,
-button:active {
+.findMain button:active {
   transform: translate(-2px, -2px);
   box-shadow: 2px 2px 1px black;
+}
+
+option {
+  font-size: 0.8rem;
+  margin: 0;
 }
