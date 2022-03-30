@@ -13,11 +13,12 @@ const MapPage = ({
   lat,
   lng,
   breweries,
+  showMenu,
 }) => {
   // from mapbox ---------------------------
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [zoom, setZoom] = useState(12);
+  const [zoom, setZoom] = useState(10);
 
   useEffect(() => {
     setIsLoading(true);
@@ -53,7 +54,7 @@ const MapPage = ({
         .addTo(map.current);
     });
     setIsLoading(false);
-  });
+  }, []);
 
   //----------------------------------------
 
@@ -62,19 +63,20 @@ const MapPage = ({
       <div className="map">
         <div ref={mapContainer} className="map-container" />
       </div>
-
-      <button
-        className="list"
-        onClick={() => {
-          setShowMapPage(false);
-          setShowBrewerySearchPage(false);
-          setIsError(false);
-          setIsLoading(false);
-          setShowListPage(true);
-        }}
-      >
-        List View &#128196;
-      </button>
+      {!showMenu && (
+        <button
+          className="list"
+          onClick={() => {
+            setShowMapPage(false);
+            setShowBrewerySearchPage(false);
+            setIsError(false);
+            setIsLoading(false);
+            setShowListPage(true);
+          }}
+        >
+          List View &#128196;
+        </button>
+      )}
     </>
   );
 };

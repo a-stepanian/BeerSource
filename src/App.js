@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import List from "./ListPage";
-import Loading from "./Loading";
-import BrewerySearchPage from "./BrewerySearchPage";
+import Loading from "./components/loading/Loading";
+import BrewerySearchPage from "./views/brewerySearchPage/BrewerySearchPage";
 import Map from "./MapPage";
-import Navbar from "./Navbar";
-import RecipePage from "./RecipePage";
+import Navbar from "./components/navbar/Navbar";
+import RecipePage from "./views/recipePage/RecipePage";
 
 const url = "https://api.openbrewerydb.org/breweries?by_city=";
 
@@ -13,6 +13,7 @@ const App = () => {
   const [showMapPage, setShowMapPage] = useState(false);
   const [showListPage, setShowListPage] = useState(false);
   const [showRecipePage, setShowRecipePage] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [city, setCity] = useState("");
@@ -26,6 +27,7 @@ const App = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setShowMenu(false);
     setIsError(false);
     const citySearch = city.trim().split(" ").join("_");
     const stateSearch = state.split(" ").join("_");
@@ -93,6 +95,8 @@ const App = () => {
         setShowRecipePage={setShowRecipePage}
         setIsError={setIsError}
         setIsLoading={setIsLoading}
+        showMenu={showMenu}
+        setShowMenu={setShowMenu}
       />
 
       {isLoading && <Loading />}
@@ -116,6 +120,7 @@ const App = () => {
             setShowMapPage={setShowMapPage}
             setShowListPage={setShowListPage}
             setShowBrewerySearchPage={setShowBrewerySearchPage}
+            showMenu={showMenu}
           />
         </main>
       )}
@@ -131,6 +136,7 @@ const App = () => {
           lat={lat}
           lng={lng}
           breweries={breweries}
+          showMenu={showMenu}
         />
       )}
 
