@@ -21,6 +21,7 @@ const App = () => {
   const [breweries, setBreweries] = useState([]);
   const [lng, setLng] = useState(null);
   const [lat, setLat] = useState(null);
+  const [cityImgUrl, setCityImgUrl] = useState(null);
 
   // Submit handler for brewery search
   // FIX ERROR WITH MULTIPLE SPACES IN BETWEEN WORDS
@@ -41,8 +42,6 @@ const App = () => {
       setShowBrewerySearchPage(true);
       setShowListPage(false);
       setIsError(true);
-      setCity("");
-      setState("");
       setBreweries([]);
       setIsLoading(false);
       return;
@@ -79,8 +78,6 @@ const App = () => {
     const breweries4 = await response4.json();
 
     setBreweries([...breweries, ...breweries2, ...breweries3, ...breweries4]);
-    setCity("");
-    setState("");
     setShowBrewerySearchPage(false);
     setIsLoading(false);
     setShowMapPage(true);
@@ -97,6 +94,8 @@ const App = () => {
         setIsLoading={setIsLoading}
         showMenu={showMenu}
         setShowMenu={setShowMenu}
+        setCity={setCity}
+        setState={setState}
       />
 
       {isLoading && <Loading />}
@@ -113,18 +112,16 @@ const App = () => {
       )}
 
       {showListPage && (
-        <main className="breweriesMain">
-          <ListBreweriesPage
-            city={city}
-            state={state}
-            breweries={breweries}
-            setIsLoading={setIsLoading}
-            setShowMapPage={setShowMapPage}
-            setShowListPage={setShowListPage}
-            setShowBrewerySearchPage={setShowBrewerySearchPage}
-            showMenu={showMenu}
-          />
-        </main>
+        <ListBreweriesPage
+          city={city}
+          state={state}
+          breweries={breweries}
+          setIsLoading={setIsLoading}
+          setShowMapPage={setShowMapPage}
+          setShowListPage={setShowListPage}
+          setShowBrewerySearchPage={setShowBrewerySearchPage}
+          showMenu={showMenu}
+        />
       )}
 
       {showMapPage && (

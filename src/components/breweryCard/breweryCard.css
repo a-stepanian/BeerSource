@@ -1,6 +1,7 @@
 .breweryCard {
+  z-index: 2;
   width: 90%;
-  background-color: var(--light-pilsner);
+  background-color: rgba(245, 235, 209, 0.63);
   margin: 20px;
   display: flex;
   flex-direction: column;

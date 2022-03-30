@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BreweryCard from "../../components/breweryCard/BreweryCard";
 import "./listBreweriesPage.css";
+import { createApi } from "unsplash-js";
+
+const unsplash = createApi({
+  accessKey: process.env.REACT_APP_UNSPLASH,
+});
 
 const ListBreweriesPage = ({
   breweries,
@@ -12,10 +17,26 @@ const ListBreweriesPage = ({
   city,
   state,
 }) => {
+  const [cityImgUrl, setCityImgUrl] = useState("");
+
+  const getPhoto = async () => {
+    const response = await unsplash.search.getPhotos({ query: city });
+    setCityImgUrl(response.response.results[0].urls.regular);
+  };
+
+  useEffect(() => {
+    getPhoto();
+  }, []);
   return (
-    <>
-      <img src="" alt={city} />
+    <main className="breweriesMain">
+      <div
+        className="cityImage"
+        style={{ background: `center/cover url(${cityImgUrl})` }}
+        alt={city}
+      ></div>
+
       <section className="breweries">
+        <h2 className="cityName">{city} breweries</h2>
         {breweries.map((brewery) => (
           <BreweryCard brewery={brewery} key={brewery.id} />
         ))}
@@ -33,7 +54,7 @@ const ListBreweriesPage = ({
           Map View &#127758;
         </button>
       )}
-    </>
+    </main>
   );
 };
 

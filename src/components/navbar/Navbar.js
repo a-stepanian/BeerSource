@@ -11,6 +11,8 @@ const Navbar = ({
   setShowRecipePage,
   showMenu,
   setShowMenu,
+  setCity,
+  setState,
 }) => {
   return (
     <header>
@@ -27,6 +29,8 @@ const Navbar = ({
               setIsError(false);
               setIsLoading(false);
               setShowRecipePage(false);
+              setCity("");
+              setState("");
             }}
           >
             Find A Brewery
@@ -62,6 +66,8 @@ const Navbar = ({
               setIsLoading(false);
               setShowRecipePage(false);
               setShowMenu(!showMenu);
+              setCity("");
+              setState("");
             }}
           >
             Find A Brewery

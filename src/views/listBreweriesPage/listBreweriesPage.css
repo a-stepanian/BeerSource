@@ -1,10 +1,19 @@
 .breweriesMain {
   display: flex;
+  flex-direction: column;
   height: calc(100vh - 60px);
 }
-.breweries {
+.cityName {
   width: 100%;
-  background-color: var(--pilsner);
+  text-align: center;
+  z-index: 2;
+  margin: 30vh 0 30vh 0;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.breweries {
+  z-index: 2;
+  width: 100%;
+  background-color: transparent;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -14,4 +23,21 @@
 
 .breweriesMain nav {
   width: 100%;
+}
+
+.cityImage {
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  height: calc(100vh - 60px);
+}
+
+.list {
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .cityName {
+    width: 100%;
+  }
 }
