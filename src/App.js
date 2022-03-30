@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
-import List from "./ListPage";
+import ListBreweriesPage from "./views/listBreweriesPage/ListBreweriesPage";
 import Loading from "./components/loading/Loading";
 import BrewerySearchPage from "./views/brewerySearchPage/BrewerySearchPage";
-import Map from "./MapPage";
+import MapPage from "./views/mapPage/MapPage";
 import Navbar from "./components/navbar/Navbar";
 import RecipePage from "./views/recipePage/RecipePage";
 
@@ -114,7 +114,9 @@ const App = () => {
 
       {showListPage && (
         <main className="breweriesMain">
-          <List
+          <ListBreweriesPage
+            city={city}
+            state={state}
             breweries={breweries}
             setIsLoading={setIsLoading}
             setShowMapPage={setShowMapPage}
@@ -126,7 +128,7 @@ const App = () => {
       )}
 
       {showMapPage && (
-        <Map
+        <MapPage
           setIsLoading={setIsLoading}
           showMapPage={showMapPage}
           setShowMapPage={setShowMapPage}

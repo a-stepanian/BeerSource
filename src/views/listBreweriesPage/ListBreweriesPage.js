@@ -1,17 +1,20 @@
 import React from "react";
-import BreweryCard from "./components/breweryCard/BreweryCard";
-import "./listPage.css";
+import BreweryCard from "../../components/breweryCard/BreweryCard";
+import "./listBreweriesPage.css";
 
-const ListPage = ({
+const ListBreweriesPage = ({
   breweries,
   setShowBrewerySearchPage,
   setShowMapPage,
   setIsLoading,
   setShowListPage,
   showMenu,
+  city,
+  state,
 }) => {
   return (
     <>
+      <img src="" alt={city} />
       <section className="breweries">
         {breweries.map((brewery) => (
           <BreweryCard brewery={brewery} key={brewery.id} />
@@ -34,4 +37,4 @@ const ListPage = ({
   );
 };
 
-export default ListPage;
+export default ListBreweriesPage;
