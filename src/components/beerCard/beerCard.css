@@ -3,8 +3,9 @@
   background-color: var(--foam);
   margin: 20px 0;
   width: 90%;
-  max-width: 480px;
+  max-width: 360px;
   border-radius: 5px;
+  height: min-content;
 }
 
 /* Recipe Card Header */
@@ -38,4 +39,10 @@
   margin: 20px 0;
   width: 100%;
   border-bottom: 3px solid var(--pilsner);
+}
+
+@media (min-width: 700px) {
+  .recipeCard {
+    margin: 20px;
+  }
 }

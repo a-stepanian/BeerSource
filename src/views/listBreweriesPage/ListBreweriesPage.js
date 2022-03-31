@@ -42,6 +42,10 @@ const ListBreweriesPage = ({
         </div>
         <div className="desktopTitle">
           <h2 className="desktopCityName">{city.toUpperCase()}</h2>
+          <div className="bigArrowBox">
+            <div className="arrowLeft"></div>
+            <div className="arrowRight"></div>
+          </div>
         </div>
         {breweries.map((brewery) => (
           <BreweryCard brewery={brewery} key={brewery.id} />

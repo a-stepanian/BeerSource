@@ -4,6 +4,7 @@ import Recipe from "../recipe/Recipe";
 
 const BeerCard = ({ beer }) => {
   const [showMore, setShowMore] = useState(false);
+  const [showRecipe, setShowRecipe] = useState(false);
 
   const { name, image_url, abv, description, tagline } = beer;
   return (
@@ -18,7 +19,10 @@ const BeerCard = ({ beer }) => {
       </header>
       <div className="line"></div>
       <section className="cardBody">
-        <p className="description">
+        {/* Just show first sentence of beer description */}
+        <p className="description">{`${description.split(".").shift()}.`}</p>
+        {/* Conditional show more or less text in beer description */}
+        {/* <p className="description">
           {description.length > 75 &&
             !showMore &&
             `${description.slice(0, 75)}...`}
@@ -33,8 +37,11 @@ const BeerCard = ({ beer }) => {
               {showMore ? "show less" : "show more"}
             </span>
           )}
-        </p>
-        <Recipe beer={beer} />
+        </p> */}
+        <div className="line"></div>
+
+        <button onClick={() => setShowRecipe(!showRecipe)}>Recipe</button>
+        {showRecipe && <Recipe beer={beer} />}
       </section>
     </article>
   );

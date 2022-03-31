@@ -40,7 +40,10 @@
 
 /* Drop-down navigation menu for mobile */
 .menu {
+  z-index: 3;
+  width: 100%;
   height: 0;
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;

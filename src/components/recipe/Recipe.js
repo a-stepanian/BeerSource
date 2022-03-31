@@ -6,7 +6,6 @@ const Recipe = ({ beer }) => {
   const [showHops, setShowHops] = useState(false);
   return (
     <>
-      <div className="line"></div>
       <h3>Ingredients</h3>
       <button onClick={() => setShowMalt(!showMalt)}>
         <h4>Malt</h4>

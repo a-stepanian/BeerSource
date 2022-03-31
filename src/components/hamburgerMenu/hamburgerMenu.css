@@ -14,7 +14,7 @@
   width: 30px;
   left: 5px;
   border-bottom: 3px solid var(--pilsner);
-  transition: 0.2s;
+  transition: 0.2s linear;
 }
 
 .topClosed {

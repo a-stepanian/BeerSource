@@ -139,7 +139,9 @@ const App = () => {
         />
       )}
 
-      {showRecipePage && <RecipePage setIsLoading={setIsLoading} />}
+      {showRecipePage && (
+        <RecipePage setIsLoading={setIsLoading} isLoading={isLoading} />
+      )}
     </>
   );
 };

@@ -2,7 +2,9 @@
   display: flex;
   height: calc(100vh - 60px);
 }
-.recipesMain h1 {
+
+.homebrewRecipes {
+  text-align: center;
   margin-top: 20px;
   font-size: 2rem;
 }
@@ -14,4 +16,10 @@
   flex-wrap: wrap;
   overflow-y: scroll;
   justify-content: center;
+}
+
+@media (min-width: 480px) {
+  .homebrewRecipes {
+    width: 100%;
+  }
 }
