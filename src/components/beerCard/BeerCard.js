@@ -19,7 +19,7 @@ const BeerCard = ({ beer }) => {
         </div>
       </header>
       <div className="line"></div>
-      <body className="cardBody">
+      <div className="cardBody">
         {/* Only display the first sentence of beer description */}
         <p className="description">{`${description.split(".").shift()}.`}</p>
 
@@ -37,7 +37,7 @@ const BeerCard = ({ beer }) => {
           </button>
           {showRecipe && <Recipe beer={beer} />}
         </div>
-      </body>
+      </div>
     </article>
   );
 };

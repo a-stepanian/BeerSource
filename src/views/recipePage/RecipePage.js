@@ -22,6 +22,9 @@ const RecipePage = ({ setIsLoading, isLoading }) => {
     <>
       {!isLoading && (
         <main className="recipesMain">
+          <aside className="largeScreenSection">
+            <h2>RECIPES</h2>
+          </aside>
           <section className="recipes">
             <h2 className="homebrewRecipes">Homebrew Recipes</h2>
             {beers.map((beer, index) => {
