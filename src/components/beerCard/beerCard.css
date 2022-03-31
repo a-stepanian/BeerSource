@@ -106,3 +106,14 @@ border-radius: 3px;
 
 
 
+@media (min-width:1024px) {
+  .recipeBox {
+    display: none;
+  }
+  .beerCard:hover {
+    outline: 3px solid var(--pilsner);
+    background-color: rgb(255, 250, 209);
+    cursor: pointer;
+  }
+
+}

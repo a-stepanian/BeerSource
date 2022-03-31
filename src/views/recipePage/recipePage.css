@@ -31,53 +31,34 @@
 
 
 
-@media (min-width: 600px) {
-.largeScreenSection, .largeScreenSection * {
+@media (min-width: 1024px) {
+  .largeScreenSection,
+  .largeScreenSection * {
     display: block;
-}
+  }
+  
   .largeScreenSection {
-    width: 150px;
+    width: 50%;
     background-color: rgba(255, 255, 255, 0.5);
     height: calc(100vh - 60px);
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
   }
-
-  .largeScreenSection h2 {
+  
+  .largeScreenH2 {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 6rem;
-    line-height: 5rem;
+    font-size: 5rem;
+    line-height: 4.2rem;
+    text-align: center;
     letter-spacing: 0.5rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+    margin-top: 20px;
   }
-
-
-  .recipes {
-    width: 100%;
-  }
-
+  
   .homebrewRecipes {
     display: none;
-  }
-}
-
-
-@media (min-width: 1200px) {
-  .largeScreenSection {
-    width: 50%;
-  }
-
-  .largeScreenSection h2 {
-    margin: 20px 0 0 20px;
-    font-size: 6rem;
-    line-height: 5rem;
-    letter-spacing: 0.5rem;
-    position: static;
-    top: none;
-    left: none;
-    transform: none;
   }
 
   .recipes {

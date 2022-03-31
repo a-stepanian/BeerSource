@@ -10,7 +10,10 @@ const Recipe = ({ beer }) => {
         {beer.method.mash_temp[0].temp.unit}
         <br />
         <span className="bold">Mash Time: </span>
-        {beer.method.mash_temp[0].duration} minutes
+        {beer.method.mash_temp[0].duration
+          ? beer.method.mash_temp[0].duration
+          : "25"}{" "}
+        minutes
         <br />
         <span className="bold">Water: </span>
         {beer.boil_volume.value} {beer.boil_volume.unit}

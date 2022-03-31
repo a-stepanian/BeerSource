@@ -2,12 +2,18 @@ import React, { useState } from "react";
 import "./beerCard.css";
 import Recipe from "../recipe/Recipe";
 
-const BeerCard = ({ beer }) => {
+const BeerCard = ({ beer, index, setBeerIndex }) => {
   const [showRecipe, setShowRecipe] = useState(false);
 
   const { name, image_url, abv, description, tagline } = beer;
   return (
-    <article className="beerCard">
+    <article
+      className="beerCard"
+      onClick={() => {
+        setShowRecipe(!showRecipe);
+        setBeerIndex(index);
+      }}
+    >
       <header>
         <div className="imageContainer">
           <img className="beerImage" src={image_url} alt={name} />
@@ -24,7 +30,12 @@ const BeerCard = ({ beer }) => {
         <p className="description">{`${description.split(".").shift()}.`}</p>
 
         <div className="recipeBox">
-          <button onClick={() => setShowRecipe(!showRecipe)}>
+          <button
+            onClick={() => {
+              setShowRecipe(!showRecipe);
+              setBeerIndex(index);
+            }}
+          >
             <h3>Recipe</h3>
             <div
               className={
