@@ -1,4 +1,4 @@
-.recipeCard {
+.beerCard {
   padding: 10px;
   background-color: var(--foam);
   margin: 20px 0;
@@ -9,40 +9,107 @@
 }
 
 /* Recipe Card Header */
-.recipeCard header {
+.beerCard header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 10px;
 }
 
+.imageContainer {
+  display: flex;
+  height: 80px;
+  width: 80px;
+  justify-content: center;
+  align-items: center;
+
+}
+
 .beerImage {
   max-height: 80px;
 }
 
-.recipeCard header .cardTitle {
+.beerCard header .cardTitle {
   width: 75%;
 }
 
-.recipeCard header h2 {
+.beerCard header h2 {
   font-size: 1.2rem;
 }
 
-.recipeCard header h3 {
+.beerCard header h3 {
   color: var(--pilsner);
   font-size: 0.9rem;
   margin: 8px 0;
 }
 
+.description {
+  letter-spacing: 0.4px;
+  line-height: 1.5rem;
+}
+
 /* Horizonal Divider */
-.recipeCard .line {
+.beerCard .line {
   margin: 20px 0;
   width: 100%;
   border-bottom: 3px solid var(--pilsner);
 }
 
+/* Recipe container and button */
+.recipeBox {
+  margin-top: 20px;
+  background-color: var(--pilsner);
+  padding: 5px;
+border-radius: 3px;
+}
+
+.recipeBox > button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--pilsner);
+  border: none;
+}
+
+.recipeBox>button:hover {
+  cursor: pointer;
+}
+.littleArrowBox {
+  height: 25px;
+  width: 25px;
+  position: relative;
+  transition: .2s;
+}
+.littleArrowLeft {
+  position: absolute;
+  width: 16px;
+  top: 4px;
+  left: 0px;
+  border-radius: 3px;
+  border-bottom: 3px solid black;
+  transform: rotate(45deg);
+  transform-origin: bottom left;
+}
+.littleArrowRight {
+  position: absolute;
+  width: 15px;
+  top: 15px;
+  left: 12px;
+  border-radius: 3px;
+  border-bottom: 3px solid black;
+  transform: rotate(-45deg);
+  transform-origin: bottom left;
+}
+.flipped {
+  transform: rotate(180deg);
+}
+
+
+
+
 @media (min-width: 700px) {
-  .recipeCard {
-    margin: 20px;
+  .beerCard {
+    margin: 30px;
   }
+  
 }

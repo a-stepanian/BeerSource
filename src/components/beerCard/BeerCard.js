@@ -3,14 +3,15 @@ import "./beerCard.css";
 import Recipe from "../recipe/Recipe";
 
 const BeerCard = ({ beer }) => {
-  const [showMore, setShowMore] = useState(false);
   const [showRecipe, setShowRecipe] = useState(false);
 
   const { name, image_url, abv, description, tagline } = beer;
   return (
-    <article className="recipeCard">
+    <article className="beerCard">
       <header>
-        <img className="beerImage" src={image_url} alt={name} />
+        <div className="imageContainer">
+          <img className="beerImage" src={image_url} alt={name} />
+        </div>
         <div className="cardTitle">
           <h2>{name}</h2>
           <h3>{tagline}</h3>
@@ -18,31 +19,25 @@ const BeerCard = ({ beer }) => {
         </div>
       </header>
       <div className="line"></div>
-      <section className="cardBody">
-        {/* Just show first sentence of beer description */}
+      <body className="cardBody">
+        {/* Only display the first sentence of beer description */}
         <p className="description">{`${description.split(".").shift()}.`}</p>
-        {/* Conditional show more or less text in beer description */}
-        {/* <p className="description">
-          {description.length > 75 &&
-            !showMore &&
-            `${description.slice(0, 75)}...`}
-          {description.length > 75 && showMore && description}
-          {description.length <= 75 && description}
 
-          {description.length > 75 && (
-            <span
-              className="showMoreButton"
-              onClick={() => setShowMore(!showMore)}
+        <div className="recipeBox">
+          <button onClick={() => setShowRecipe(!showRecipe)}>
+            <h3>Recipe</h3>
+            <div
+              className={
+                showRecipe ? "littleArrowBox flipped" : "littleArrowBox"
+              }
             >
-              {showMore ? "show less" : "show more"}
-            </span>
-          )}
-        </p> */}
-        <div className="line"></div>
-
-        <button onClick={() => setShowRecipe(!showRecipe)}>Recipe</button>
-        {showRecipe && <Recipe beer={beer} />}
-      </section>
+              <div className="littleArrowLeft"></div>
+              <div className="littleArrowRight"></div>
+            </div>
+          </button>
+          {showRecipe && <Recipe beer={beer} />}
+        </div>
+      </body>
     </article>
   );
 };

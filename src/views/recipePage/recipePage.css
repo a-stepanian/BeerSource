@@ -10,7 +10,7 @@
 }
 .recipes {
   width: 100%;
-  background-color: var(--pilsner);
+  background-color: rgb(240, 231, 191);
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

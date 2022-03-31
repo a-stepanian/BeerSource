@@ -2,52 +2,96 @@ import React, { useState } from "react";
 import "./recipe.css";
 
 const Recipe = ({ beer }) => {
-  const [showMalt, setShowMalt] = useState(false);
-  const [showHops, setShowHops] = useState(false);
   return (
-    <>
-      <h3>Ingredients</h3>
-      <button onClick={() => setShowMalt(!showMalt)}>
-        <h4>Malt</h4>
-      </button>
-      {showMalt && (
-        <ul>
-          {beer.ingredients.malt.map((malt, index) => {
-            return (
-              <li key={index} className="malt">
-                <span className="bold">{malt.amount.value} kg </span>
-                {malt.name}
-              </li>
-            );
-          })}
-        </ul>
-      )}
-      <button onClick={() => setShowHops(!showHops)}>
-        <h4>Hops</h4>
-      </button>
-      {showHops &&
-        beer.ingredients.hops.map((hop, index) => {
+    <div className="recipe">
+      <p>
+        <span className="bold">Mash Temperature: </span>
+        {beer.method.mash_temp[0].temp.value}{" "}
+        {beer.method.mash_temp[0].temp.unit}
+        <br />
+        <span className="bold">Mash Time: </span>
+        {beer.method.mash_temp[0].duration} minutes
+        <br />
+        <span className="bold">Water: </span>
+        {beer.boil_volume.value} {beer.boil_volume.unit}
+      </p>
+      <div className="line"></div>
+      <h4>Malt</h4>
+      <ul>
+        {beer.ingredients.malt.map((malt, index) => {
           return (
-            <section key={index} className="ingredient">
-              <p className="ingredientName">{hop.name}</p>
-              <p>
-                Add {hop.amount.value} {hop.amount.unit}{" "}
-                {hop.add === "start" && "at the start"}
-                {hop.add === "middle" && "in the middle"}
-                {hop.add === "end" && "at the end"} of the boil.
-              </p>
-            </section>
+            <li key={index} className="ingredient">
+              <span className="bold">{malt.amount.value} kg </span>
+              {malt.name}
+            </li>
           );
         })}
-      <h4>
-        Mash Temperature: {beer.method.mash_temp[0].temp.value}{" "}
-        {beer.method.mash_temp[0].temp.unit}
-      </h4>
-      <h4>Mash Time: {beer.method.mash_temp[0].duration} minutes</h4>
-      <h4>
-        Recipe for {beer.boil_volume.value} {beer.boil_volume.unit}
-      </h4>
-    </>
+      </ul>
+      <div className="line"></div>
+      <h4>Hop Additions</h4>
+      {beer.ingredients.hops.filter((hop) => hop.add === "start").length >
+        0 && (
+        <>
+          <h5 className="boil">Start of boil</h5>
+          <div className="ingredient">
+            {beer.ingredients.hops
+              .filter((hop) => hop.add === "start")
+              .map((hop, index) => {
+                return (
+                  <li key={index}>
+                    <p>
+                      <span className="bold">{hop.amount.value}g</span>{" "}
+                      {hop.name}
+                    </p>
+                  </li>
+                );
+              })}
+          </div>
+        </>
+      )}
+
+      {beer.ingredients.hops.filter((hop) => hop.add === "middle").length >
+        0 && (
+        <>
+          <h5 className="boil">Middle of boil</h5>
+
+          <div className="ingredient">
+            {beer.ingredients.hops
+              .filter((hop) => hop.add === "middle")
+              .map((hop, index) => {
+                return (
+                  <li key={index}>
+                    <p>
+                      <span className="bold">{hop.amount.value}g</span>{" "}
+                      {hop.name}
+                    </p>
+                  </li>
+                );
+              })}
+          </div>
+        </>
+      )}
+
+      {beer.ingredients.hops.filter((hop) => hop.add === "end").length > 0 && (
+        <>
+          <h5 className="boil">End of boil</h5>
+          <div className="ingredient">
+            {beer.ingredients.hops
+              .filter((hop) => hop.add === "end")
+              .map((hop, index) => {
+                return (
+                  <li key={index}>
+                    <p>
+                      <span className="bold">{hop.amount.value}g</span>{" "}
+                      {hop.name}
+                    </p>
+                  </li>
+                );
+              })}
+          </div>
+        </>
+      )}
+    </div>
   );
 };
 

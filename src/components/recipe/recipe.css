@@ -1,33 +1,34 @@
-/* Card Body */
-.cardBody {
+/* Collapsable recipe container */
+.recipe {
   display: flex;
   flex-direction: column;
+  background-color: var(--foam);
+  padding: 10px;
+  border-radius: 3px;
 }
-.cardBody h3 {
+.recipe h3 {
   font-size: 1.1rem;
 }
-.description {
-  letter-spacing: 0.3px;
-  line-height: 1.5rem;
+.recipe .bold {
+  font-weight: 600;
 }
-.showMoreButton {
-  white-space: nowrap;
-  padding-left: 10px;
-  letter-spacing: -1px;
-  text-decoration: underline;
-  font-weight: 700;
+
+.recipe p {
+  line-height: 2rem;
 }
-.showMoreButton:hover {
-  cursor: pointer;
-}
-.ingredientName {
-  font-weight: 900;
-  font-size: 1rem;
+
+
+.recipe li {
+  list-style: none;
 }
 
 .ingredient {
-  width: 80%;
-  padding: 10px;
-  background-color: blanchedalmond;
-  margin: 10px;
+  padding: 5px;
+  border-radius: 3px;
+  margin: 8px 0;
+  background-color: rgba(233, 215, 150, 0.332);
+}
+
+.boil {
+  margin: 8px 0 -8px 5px;
 }
