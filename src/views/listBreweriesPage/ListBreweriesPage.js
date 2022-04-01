@@ -51,19 +51,17 @@ const ListBreweriesPage = ({
           <BreweryCard brewery={brewery} key={brewery.id} />
         ))}
       </section>
-      {!showMenu && (
-        <nav
-          className="mapView"
-          onClick={() => {
-            setShowBrewerySearchPage(false);
-            setShowListPage(false);
-            setShowMapPage(true);
-            setIsLoading(false);
-          }}
-        >
-          <p>&#127758; Back to Map</p>
-        </nav>
-      )}
+      <nav
+        className="mapView"
+        onClick={() => {
+          setShowBrewerySearchPage(false);
+          setShowListPage(false);
+          setShowMapPage(true);
+          setIsLoading(false);
+        }}
+      >
+        <p>&#127758; Back to Map</p>
+      </nav>
     </main>
   );
 };
