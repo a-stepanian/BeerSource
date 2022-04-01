@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./recipePage.css";
 import BeerCard from "../../components/beerCard/BeerCard";
 import BigScreenRecipe from "../../components/bigScreenRecipe/BigScreenRecipe";
-import Recipe from "../../components/recipe/Recipe";
 
 const RecipePage = ({ setIsLoading, isLoading }) => {
   const [beers, setBeers] = useState([]);
@@ -11,7 +10,7 @@ const RecipePage = ({ setIsLoading, isLoading }) => {
 
   const findRecipes = async () => {
     const response = await fetch(
-      "https://api.punkapi.com/v2/beers?page=5&per_page=12"
+      "https://api.punkapi.com/v2/beers?page=2&per_page=32"
     );
     const beersJSON = await response.json();
     setBeers(beersJSON);
@@ -31,9 +30,19 @@ const RecipePage = ({ setIsLoading, isLoading }) => {
     <>
       {!isLoading && (
         <main className="recipesMain">
-          <aside className="largeScreenSection">
-            <h2 className="largeScreenH2">
-              {currentBeer.name ? currentBeer.name : "RECIPES"}
+          <aside
+            className={
+              currentBeer.name
+                ? "largeScreenSection"
+                : "largeScreenSection centered"
+            }
+          >
+            <h2
+              className={
+                currentBeer.name ? "largeScreenH2" : "largeScreenH2 choose"
+              }
+            >
+              {currentBeer.name ? currentBeer.name : "Choose A Recipe"}
             </h2>
             {currentBeer.name && <BigScreenRecipe beer={currentBeer} />}
           </aside>
