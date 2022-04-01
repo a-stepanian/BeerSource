@@ -32,7 +32,6 @@
 
 
 @media (min-width: 1024px) {
-  .largeScreenSection,
   .largeScreenSection * {
     display: block;
   }
@@ -55,6 +54,13 @@
     text-align: center;
     letter-spacing: 0.5rem;
     margin-top: 20px;
+  }
+
+  .centered {
+    justify-content: center;
+  }
+  .choose {
+    color: rgba(0, 0, 0, 0.5);
   }
   
   .homebrewRecipes {
