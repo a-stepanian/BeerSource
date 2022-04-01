@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/brewery-finder/static/css/main.8c2b59b6.css",
-    "main.js": "/brewery-finder/static/js/main.96203288.js",
+    "main.css": "/brewery-finder/static/css/main.98883dd4.css",
+    "main.js": "/brewery-finder/static/js/main.58ca6168.js",
     "index.html": "/brewery-finder/index.html",
-    "main.8c2b59b6.css.map": "/brewery-finder/static/css/main.8c2b59b6.css.map",
-    "main.96203288.js.map": "/brewery-finder/static/js/main.96203288.js.map"
+    "main.98883dd4.css.map": "/brewery-finder/static/css/main.98883dd4.css.map",
+    "main.58ca6168.js.map": "/brewery-finder/static/js/main.58ca6168.js.map"
   },
   "entrypoints": [
-    "static/css/main.8c2b59b6.css",
-    "static/js/main.96203288.js"
+    "static/css/main.98883dd4.css",
+    "static/js/main.58ca6168.js"
   ]
 }
