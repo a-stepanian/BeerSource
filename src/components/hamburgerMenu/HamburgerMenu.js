@@ -3,7 +3,7 @@ import "./hamburgerMenu.css";
 
 const HamburgerMenu = ({ showMenu, setShowMenu }) => {
   return (
-    <button className="hamburger" onClick={() => setShowMenu(!showMenu)}>
+    <div className="hamburger" onClick={() => setShowMenu(!showMenu)}>
       {showMenu ? (
         <>
           <div className="bar topOpen"></div>
@@ -19,7 +19,7 @@ const HamburgerMenu = ({ showMenu, setShowMenu }) => {
           <div className="bar rightXClosed"></div>
         </>
       )}
-    </button>
+    </div>
   );
 };
 
