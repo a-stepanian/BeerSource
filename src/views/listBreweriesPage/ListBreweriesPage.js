@@ -36,12 +36,8 @@ const ListBreweriesPage = ({
       ></div>
 
       <section className="breweries">
-        <div className="mobileTitle">
-          <h2 className="cityName">{city} breweries</h2>
-          <h3 className="arrow">&#8595;</h3>
-        </div>
-        <div className="desktopTitle">
-          <h2 className="desktopCityName">{city.toUpperCase()}</h2>
+        <div className="cityNameContainer">
+          <h2>{city.toUpperCase()}</h2>
           <div className="bigArrowBox">
             <div className="arrowLeft"></div>
             <div className="arrowRight"></div>
@@ -50,6 +46,7 @@ const ListBreweriesPage = ({
         {breweries.map((brewery) => (
           <BreweryCard brewery={brewery} key={brewery.id} />
         ))}
+        <div className="empty"></div>
       </section>
       <nav
         className="mapView"

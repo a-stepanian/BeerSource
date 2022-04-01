@@ -54,40 +54,43 @@ const Navbar = ({
       </div>
 
       {/* Mobile Collapsible Navigation Menu  */}
-      {showMenu && (
-        <nav className="menu">
-          <button
-            className="menuButton"
-            onClick={() => {
-              setShowMapPage(false);
-              setShowListPage(false);
-              setShowBrewerySearchPage(true);
-              setIsError(false);
-              setIsLoading(false);
-              setShowRecipePage(false);
-              setShowMenu(!showMenu);
-              setCity("");
-              setState("");
-            }}
-          >
-            Find A Brewery
-          </button>
-          <button
-            className="menuButton"
-            onClick={() => {
-              setShowMapPage(false);
-              setShowListPage(false);
-              setShowBrewerySearchPage(false);
-              setIsError(false);
-              setShowMenu(!showMenu);
-              setShowRecipePage(true);
-              setIsLoading(false);
-            }}
-          >
-            Brew Your Own
-          </button>
-        </nav>
-      )}
+
+      <nav className={showMenu ? "menu opened" : "menu"}>
+        {showMenu && (
+          <>
+            <button
+              className="menuButton"
+              onClick={() => {
+                setShowMapPage(false);
+                setShowListPage(false);
+                setShowBrewerySearchPage(true);
+                setIsError(false);
+                setIsLoading(false);
+                setShowRecipePage(false);
+                setShowMenu(!showMenu);
+                setCity("");
+                setState("");
+              }}
+            >
+              Find A Brewery
+            </button>
+            <button
+              className="menuButton"
+              onClick={() => {
+                setShowMapPage(false);
+                setShowListPage(false);
+                setShowBrewerySearchPage(false);
+                setIsError(false);
+                setShowMenu(!showMenu);
+                setShowRecipePage(true);
+                setIsLoading(false);
+              }}
+            >
+              Brew Your Own
+            </button>
+          </>
+        )}
+      </nav>
     </header>
   );
 };

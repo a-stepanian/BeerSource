@@ -59,25 +59,23 @@ const MapPage = ({
   //----------------------------------------
 
   return (
-    <>
+    <main className="mapBody">
       <div className="map">
         <div ref={mapContainer} className="map-container" />
       </div>
-      {!showMenu && (
-        <nav
-          className="list"
-          onClick={() => {
-            setShowMapPage(false);
-            setShowBrewerySearchPage(false);
-            setIsError(false);
-            setIsLoading(false);
-            setShowListPage(true);
-          }}
-        >
-          &#128196; List View
-        </nav>
-      )}
-    </>
+      <nav
+        className="list"
+        onClick={() => {
+          setShowMapPage(false);
+          setShowBrewerySearchPage(false);
+          setIsError(false);
+          setIsLoading(false);
+          setShowListPage(true);
+        }}
+      >
+        &#128196; List View
+      </nav>
+    </main>
   );
 };
 

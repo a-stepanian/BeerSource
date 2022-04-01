@@ -9,11 +9,15 @@
 .cityImage {
   z-index: 1;
   position: fixed;
+  margin-top: 60px;
   width: 100%;
   height: calc(100vh - 120px);
 }
 
+/* Scrollable container between navbar and mobile back to map bottom button */
 .breweries {
+  height: calc(100vh - 120px);
+  margin-top: 60px;
   width: 100%;
   background-color: transparent;
   display: flex;
@@ -23,46 +27,98 @@
   justify-content: center;
 }
 
-.mobileTitle {
+.cityNameContainer {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-}
-
-.cityName {
   width: 100%;
-  text-align: center;
-  margin-top: 40vh;
-  padding: 3px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 3px;
+  height: calc(100vh - 120px);
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
-.mapView,
-.breweries,
-.mobileTitle,
-.desktopTitle {
-  z-index: 2;
+.cityNameContainer h2 {
+  background-color: rgba(255, 255, 255, 0.1);
+  outline: 5px solid rgba(255, 255, 255, 0.05);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+  line-height: 3rem;
+  margin-bottom: 20vh;
+  font-size: 3rem;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
-.arrow {
-  margin: 15vh 0;
-  font-size: 7rem;
-  color: rgba(255, 255, 255, 0.9);
-  animation: bounce 1s infinite ease-in-out;
+.bigArrowBox {
+  height: 103px;
+  width: 103px;
+  position: relative;
+  animation: boxBounce 1s ease-in-out 0.4s infinite;
 }
-@keyframes bounce {
+
+@keyframes boxBounce {
   0% {
     transform: translateY(0px);
   }
+
   50% {
-    transform: translateY(-20px);
+    transform: translateY(20px);
   }
+
   100% {
     transform: translateY(0px);
   }
 }
 
+.arrowLeft {
+  position: absolute;
+  border-bottom: 8px solid black;
+  transform: rotate(45deg);
+  transform-origin: bottom left;
+  animation: growRight 0.2s forwards;
+}
+
+@keyframes growRight {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 68px;
+  }
+}
+
+.arrowRight {
+  position: absolute;
+  top: 48px;
+  left: 49px;
+  border-bottom: 8px solid black;
+  transform: rotate(-45deg);
+  transform-origin: bottom left;
+  animation: growLeft 0.2s forwards 0.2s;
+}
+
+@keyframes growLeft {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 68px;
+  }
+}
+
+.mapView,
+.breweries,
+.cityNameContainer {
+  z-index: 2;
+}
+
+/* spacer for mobile issue with last child behind back to map button */
+.empty {
+  width: 100%;
+  height: 120px;
+}
+
+/* Back to Map button mobile styling */
 .mapView {
   background-color: var(--pilsner);
   font-weight: 900;
@@ -71,96 +127,38 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   bottom: 0;
 }
 .mapView:hover {
   cursor: pointer;
 }
 
-.desktopTitle {
-  display: none;
-}
+
+
 
 @media (min-width: 720px) {
   .breweriesMain {
     height: calc(100vh - 60px);
   }
+
   .cityImage {
     height: calc(100vh - 60px);
   }
-  .mobileTitle {
-    display: none;
-  }
-  .desktopTitle {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(255, 255, 255, 0.7);
+  .breweries {
+    height: calc(100vh - 60px);
   }
-  .desktopCityName {
-    margin: 15vh 0;
-  }
-  .bigArrowBox {
-    height: 103px;
-    width: 103px;
-    position: relative;
-    animation: boxBounce 1s ease-in-out 0.4s infinite;
+  
+  .cityNameContainer {
+    height: calc(100vh - 60px);
+  background-color: rgba(255, 255, 255, 0.7);
   }
 
-  @keyframes boxBounce {
-    0% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(20px);
-    }
-    100% {
-      transform: translateY(0px);
-    }
-  }
-
-  .arrowLeft {
-    position: absolute;
-    border-bottom: 8px solid black;
-    transform: rotate(45deg);
-    transform-origin: bottom left;
-    animation: growRight 0.2s forwards;
-  }
-  @keyframes growRight {
-    0% {
-      width: 0;
-    }
-    100% {
-      width: 68px;
-    }
-  }
-  .arrowRight {
-    position: absolute;
-    top: 48px;
-    left: 49px;
-    border-bottom: 8px solid black;
-    transform: rotate(-45deg);
-    transform-origin: bottom left;
-    animation: growLeft 0.2s forwards 0.2s;
-  }
-  @keyframes growLeft {
-    0% {
-      width: 0;
-    }
-    100% {
-      width: 68px;
-    }
-  }
-
-  .desktopTitle h2 {
+  .cityNameContainer h2 {
     font-size: 8rem;
-    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   }
+  
   .mapView {
     position: absolute;
     top: 12%;

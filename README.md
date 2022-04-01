@@ -40,3 +40,5 @@ https://a-stepanian.github.io/brewery-finder/
 -console.log not working in any of the components.
 
 -drop down menu doesn't work with map feature, had to make map z-index -1.
+
+struggled with the map positioning on mobile browsers.

@@ -1,4 +1,6 @@
 .recipesMain {
+  position: fixed;
+  margin-top: 60px;
   background: url('https://images.unsplash.com/photo-1609315775378-fc9679b1786a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1587&q=80');
   background-size: cover;
   background-position: center;
@@ -25,7 +27,7 @@
   line-height: 60px;
   width: 100%;
   background-color: var(--pilsner);
-  margin: 30vh 0 20vh;
+  margin-bottom: 60px;
 }
 
 

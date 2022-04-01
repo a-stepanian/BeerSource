@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./brewerySearchPage.css";
 
 const usStates = [
@@ -57,13 +57,25 @@ const usStates = [
 ];
 
 const Find = ({ handleSubmit, city, setCity, state, setState, isError }) => {
-  // For mobile safari navbar issue
-  useEffect(() => {
-    const findMain = document.querySelector(".findMain");
-    window.addEventListener("resize", () => {
-      findMain.style.setProperty("height", `${window.innerHeight - 60}px`);
-    });
-  }, []);
+  // const [windowHeight, setWindowHeight] = useState("");
+
+  // useEffect(() => {
+  //   window.addEventListener("resize", () => {
+  //     setWindowHeight(`${window.innerHeight}px`);
+  //   });
+  //   return window.removeEventListener("resize", () => {
+  //     setWindowHeight(`${window.innerHeight}px`);
+  //   });
+  // });
+
+  // // For mobile safari navbar issue
+  // useEffect(() => {
+  //   const findMain = document.querySelector(".findMain");
+
+  //   window.addEventListener("resize", () => {
+  //     findMain.style.setProperty("height", windowHeight);
+  //   });
+  // }, [windowHeight]);
 
   return (
     <main className="findMain">
