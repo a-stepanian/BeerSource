@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./brewerySearchPage.css";
 
 const usStates = [
@@ -57,6 +57,14 @@ const usStates = [
 ];
 
 const Find = ({ handleSubmit, city, setCity, state, setState, isError }) => {
+  // For mobile safari navbar issue
+  useEffect(() => {
+    const findMain = document.querySelector(".findMain");
+    window.addEventListener("resize", () => {
+      findMain.style.setProperty("height", `${window.innerHeight - 60}px`);
+    });
+  }, []);
+
   return (
     <main className="findMain">
       {isError ? (

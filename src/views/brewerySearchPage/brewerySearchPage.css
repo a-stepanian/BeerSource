@@ -10,8 +10,12 @@
   --pilsner: rgb(209, 170, 69);
   --light-pilsner: rgb(207, 183, 123);
 }
+body {
+  overflow: hidden;
+}
+
 .findMain {
-  height: calc(100vh - 60px - env(safe-area-inset-bottom));
+  height: calc(100vh - 60px);
   display: flex;
   flex-direction: column;
   justify-content: center;
