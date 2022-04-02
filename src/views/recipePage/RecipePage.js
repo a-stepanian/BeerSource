@@ -58,6 +58,7 @@ const RecipePage = ({ setIsLoading, isLoading }) => {
                 />
               );
             })}
+            <div className="empty"></div>
           </section>
         </main>
       )}

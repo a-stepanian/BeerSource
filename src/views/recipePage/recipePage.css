@@ -30,7 +30,10 @@
   margin-bottom: 60px;
 }
 
-
+.empty {
+  width: 100%;
+  height: 120px;
+}
 
 
 @media (min-width: 1024px) {
@@ -73,3 +76,4 @@
     width: 50%;
   }
 }
+
