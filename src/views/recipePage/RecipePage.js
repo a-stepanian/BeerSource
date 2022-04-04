@@ -8,6 +8,12 @@ const RecipePage = ({ setIsLoading, isLoading }) => {
   const [beerIndex, setBeerIndex] = useState(null);
   const [currentBeer, setCurrentBeer] = useState({});
 
+  const scrollUp = () => {
+    const scrollContainer = document.querySelector(".recipes");
+    scrollContainer.scrollTo(0, 0);
+  };
+
+  // Fetch all recipe data from API
   const findRecipes = async () => {
     const response = await fetch(
       "https://api.punkapi.com/v2/beers?page=1&per_page=50"
@@ -17,10 +23,12 @@ const RecipePage = ({ setIsLoading, isLoading }) => {
     setIsLoading(false);
   };
 
+  // Fetch the data when the page loads
   useEffect(() => {
     findRecipes();
   }, []);
 
+  // Set currentBeer when user clicks on a beer card on large screens.
   useEffect(() => {
     const foundBeer = beers.filter((beer, index) => index === beerIndex)[0];
     return setCurrentBeer({ ...foundBeer });
@@ -58,7 +66,9 @@ const RecipePage = ({ setIsLoading, isLoading }) => {
                 />
               );
             })}
-            <div className="empty"></div>
+            <button className="backToTop" onClick={scrollUp}>
+              Back to Top
+            </button>
           </section>
         </main>
       )}
