@@ -7,6 +7,7 @@ const BigScreenRecipe = ({ beer }) => {
   const volume = beer.boil_volume;
   return (
     <div className="recipeBig">
+      <h3 className="recipeH3">Recipe</h3>
       <div className="fullRecipeWrapper">
         <div className="recipeBigLeftCol">
           <div className="tempBox">
