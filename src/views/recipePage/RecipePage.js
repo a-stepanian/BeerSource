@@ -16,7 +16,7 @@ const RecipePage = ({ setIsLoading, isLoading }) => {
   // Fetch all recipe data from API
   const findRecipes = async () => {
     const response = await fetch(
-      "https://api.punkapi.com/v2/beers?page=1&per_page=50"
+      "https://api.punkapi.com/v2/beers?page=1&per_page=25"
     );
     const beersJSON = await response.json();
     setBeers(beersJSON);
