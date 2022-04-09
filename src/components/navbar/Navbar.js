@@ -2,18 +2,10 @@ import React, { useState } from "react";
 import "./navbar.css";
 import HamburgerMenu from "../hamburgerMenu/HamburgerMenu";
 import { useGlobalContext } from "../../context";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
-  const {
-    setShowMapPage,
-    setShowListPage,
-    setShowBrewerySearchPage,
-    setIsLoading,
-    setShowRecipePage,
-    setCity,
-    setState,
-  } = useGlobalContext();
-
+  const { setCity, setState, setIsLoading } = useGlobalContext();
   const [showMenu, setShowMenu] = useState(false);
 
   return (
@@ -22,32 +14,22 @@ const Navbar = () => {
       <div className="navbar">
         <h1 className="beerSource">&#127866;BeerSource</h1>
         <nav className="largeScreenNavButtons">
-          <button
+          <NavLink
             className="menuButton menuButtonBigScreen"
+            to="/brewery-finder/search"
             onClick={() => {
-              setShowMapPage(false);
-              setShowListPage(false);
-              setShowBrewerySearchPage(true);
-              setIsLoading(false);
-              setShowRecipePage(false);
               setCity("");
               setState("");
             }}
           >
             Find A Brewery
-          </button>
-          <button
+          </NavLink>
+          <NavLink
             className="menuButton menuButtonBigScreen"
-            onClick={() => {
-              setShowRecipePage(true);
-              setShowMapPage(false);
-              setShowListPage(false);
-              setShowBrewerySearchPage(false);
-              setIsLoading(false);
-            }}
+            to="/brewery-finder/recipes"
           >
             Brew Your Own
-          </button>
+          </NavLink>
         </nav>
 
         <HamburgerMenu showMenu={showMenu} setShowMenu={setShowMenu} />
@@ -58,34 +40,26 @@ const Navbar = () => {
       <nav className={showMenu ? "menu opened" : "menu"}>
         {showMenu && (
           <>
-            <button
-              className="menuButton"
+            <NavLink
+              className="menuButton menuButtonBigScreen"
+              to="/brewery-finder/search"
               onClick={() => {
-                setShowMapPage(false);
-                setShowListPage(false);
-                setShowBrewerySearchPage(true);
-                setIsLoading(false);
-                setShowRecipePage(false);
-                setShowMenu(!showMenu);
                 setCity("");
                 setState("");
+                setShowMenu(false);
               }}
             >
               Find A Brewery
-            </button>
-            <button
-              className="menuButton"
+            </NavLink>
+            <NavLink
+              className="menuButton menuButtonBigScreen"
+              to="/brewery-finder/recipes"
               onClick={() => {
-                setShowMapPage(false);
-                setShowListPage(false);
-                setShowBrewerySearchPage(false);
-                setShowMenu(!showMenu);
-                setShowRecipePage(true);
-                setIsLoading(false);
+                setShowMenu(false);
               }}
             >
               Brew Your Own
-            </button>
+            </NavLink>
           </>
         )}
       </nav>

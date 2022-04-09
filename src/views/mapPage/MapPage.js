@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import "./mapPage.css";
 import { useGlobalContext } from "../../context";
+import Loading from "../../components/loading/Loading";
+import { Link } from "react-router-dom";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
@@ -13,6 +15,7 @@ const MapPage = () => {
     setShowBrewerySearchPage,
     lat,
     lng,
+    isLoading,
     breweries,
   } = useGlobalContext();
 
@@ -59,22 +62,18 @@ const MapPage = () => {
 
   //----------------------------------------
 
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
     <main className="mapBody">
       <div className="map">
         <div ref={mapContainer} className="map-container" />
       </div>
-      <nav
-        className="list"
-        onClick={() => {
-          setShowMapPage(false);
-          setShowBrewerySearchPage(false);
-          setIsLoading(false);
-          setShowListPage(true);
-        }}
-      >
+      <Link to="/brewery-finder/breweries" className="list">
         &#128196; List View
-      </nav>
+      </Link>
     </main>
   );
 };

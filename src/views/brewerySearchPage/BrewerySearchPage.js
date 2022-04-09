@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useGlobalContext } from "../../context";
 import "./brewerySearchPage.css";
+import Loading from "../../components/loading/Loading";
+import { useNavigate } from "react-router-dom";
 
 const usStates = [
   "",
@@ -63,14 +65,14 @@ const BrewerySearchPage = () => {
     setCity,
     state,
     setState,
+    isLoading,
     setIsLoading,
-    setShowBrewerySearchPage,
     setBreweries,
-    setShowListPage,
-    setShowMapPage,
     setLat,
     setLng,
   } = useGlobalContext();
+
+  const navigate = useNavigate();
 
   const [isError, setIsError] = useState(false);
 
@@ -87,8 +89,7 @@ const BrewerySearchPage = () => {
     const breweries = await response.json();
 
     if (breweries.length === 0) {
-      setShowBrewerySearchPage(true);
-      setShowListPage(false);
+      navigate("/brewery-finder/search");
       setIsError(true);
       setBreweries([]);
       setIsLoading(false);
@@ -126,10 +127,13 @@ const BrewerySearchPage = () => {
     const breweries4 = await response4.json();
 
     setBreweries([...breweries, ...breweries2, ...breweries3, ...breweries4]);
-    setShowBrewerySearchPage(false);
     setIsLoading(false);
-    setShowMapPage(true);
+    navigate("/brewery-finder/map");
   };
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <main className="findMain">

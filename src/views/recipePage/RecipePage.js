@@ -3,9 +3,9 @@ import "./recipePage.css";
 import BeerCard from "../../components/beerCard/BeerCard";
 import BigScreenRecipe from "../../components/bigScreenRecipe/BigScreenRecipe";
 import { useGlobalContext } from "../../context";
+import Loading from "../../components/loading/Loading";
 
 const RecipePage = () => {
-  const { setIsLoading, isLoading } = useGlobalContext();
   const [beers, setBeers] = useState([]);
   const [beerIndex, setBeerIndex] = useState(null);
   const [currentBeer, setCurrentBeer] = useState({});
@@ -22,7 +22,6 @@ const RecipePage = () => {
     );
     const beersJSON = await response.json();
     setBeers(beersJSON);
-    setIsLoading(false);
   };
 
   // Fetch the data when the page loads
@@ -37,44 +36,41 @@ const RecipePage = () => {
   }, [beerIndex]);
 
   return (
-    <>
-      {!isLoading && (
-        <main className="recipesMain">
-          <aside
-            className={
-              currentBeer.name
-                ? "largeScreenSection"
-                : "largeScreenSection centered"
-            }
-          >
-            <h2
-              className={
-                currentBeer.name ? "largeScreenH2" : "largeScreenH2 choose"
-              }
-            >
-              {currentBeer.name ? currentBeer.name : "Choose A Recipe"}
-            </h2>
-            {currentBeer.name && <BigScreenRecipe beer={currentBeer} />}
-          </aside>
-          <section className="recipes">
-            <h2 className="homebrewRecipes">Homebrew Recipes</h2>
-            {beers.map((beer, index) => {
-              return (
-                <BeerCard
-                  key={index}
-                  beer={beer}
-                  index={index}
-                  setBeerIndex={setBeerIndex}
-                />
-              );
-            })}
-            <button className="backToTop" onClick={scrollUp}>
-              Back to Top
-            </button>
-          </section>
-        </main>
-      )}
-    </>
+    <main className="recipesMain">
+      {/* Style differently if there is a recipe selected or not */}
+      <aside
+        className={
+          currentBeer.name
+            ? "largeScreenSection"
+            : "largeScreenSection centered"
+        }
+      >
+        <h2
+          className={
+            currentBeer.name ? "largeScreenH2" : "largeScreenH2 choose"
+          }
+        >
+          {currentBeer.name ? currentBeer.name : "Choose A Recipe"}
+        </h2>
+        {currentBeer.name && <BigScreenRecipe beer={currentBeer} />}
+      </aside>
+      <section className="recipes">
+        <h2 className="homebrewRecipes">Homebrew Recipes</h2>
+        {beers.map((beer, index) => {
+          return (
+            <BeerCard
+              key={index}
+              beer={beer}
+              index={index}
+              setBeerIndex={setBeerIndex}
+            />
+          );
+        })}
+        <button className="backToTop" onClick={scrollUp}>
+          Back to Top
+        </button>
+      </section>
+    </main>
   );
 };
 

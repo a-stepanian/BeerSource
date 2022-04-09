@@ -3,20 +3,14 @@ import BreweryCard from "../../components/breweryCard/BreweryCard";
 import "./listBreweriesPage.css";
 import { createApi } from "unsplash-js";
 import { useGlobalContext } from "../../context";
+import { Link } from "react-router-dom";
 
 const unsplash = createApi({
   accessKey: process.env.REACT_APP_UNSPLASH,
 });
 
 const ListBreweriesPage = () => {
-  const {
-    breweries,
-    setShowBrewerySearchPage,
-    setShowMapPage,
-    setIsLoading,
-    setShowListPage,
-    city,
-  } = useGlobalContext();
+  const { breweries, city } = useGlobalContext();
   const [cityImgUrl, setCityImgUrl] = useState("");
 
   const getPhoto = async () => {
@@ -27,15 +21,18 @@ const ListBreweriesPage = () => {
   useEffect(() => {
     getPhoto();
   }, []);
+
   return (
     <main className="breweriesMain">
+      {/* Dynamic city background image */}
       <div
         className="cityImage"
         style={{ background: `center/cover url(${cityImgUrl})` }}
         alt={city}
-      ></div>
+      />
 
       <section className="breweries">
+        {/* City name and scroll down arrow overlay */}
         <div className="cityNameContainer">
           <h2>{city.toUpperCase()}</h2>
           <div className="bigArrowBox">
@@ -43,22 +40,16 @@ const ListBreweriesPage = () => {
             <div className="arrowRight"></div>
           </div>
         </div>
+        {/* Brewery cards */}
         {breweries.map((brewery) => (
           <BreweryCard brewery={brewery} key={brewery.id} />
         ))}
         <div className="empty"></div>
       </section>
-      <nav
-        className="mapView"
-        onClick={() => {
-          setShowBrewerySearchPage(false);
-          setShowListPage(false);
-          setShowMapPage(true);
-          setIsLoading(false);
-        }}
-      >
+
+      <Link to="/brewery-finder/map" className="mapView">
         <p>&#127758; Back to Map</p>
-      </nav>
+      </Link>
     </main>
   );
 };
