@@ -25,6 +25,10 @@ https://a-stepanian.github.io/brewery-finder/
 
 ## Random Notes to clean up later
 
+-Built app out fully before going through useContext training, so refactored to useContext so I didn't need to pass everything through as props. Also had to do alot of clean up to remove pointless functionality - ex: no need to have showMenu functionality outside of the navbar. No need to set showMenu to false in the brewery search submit handler because if a user is able to click the submit button, showMenu must already be false.
+
+Built app out fully before going through Router training. I knew this was coming but wanted the practice building componenents and using states to display "page components". But ultimately knew I would have to refactor everything here.
+
 -take form input and split at space and join with underscore to fetch api data for multiple word cities.
 
 -make state input field because there are multiple states with the same city name.
