@@ -2,19 +2,8 @@ import React from "react";
 import "./breweryCard.css";
 
 const BreweryCard = ({ brewery }) => {
-  const {
-    name,
-    street,
-    city,
-    country,
-    latitude,
-    longitude,
-    phone,
-    postal_code,
-    state,
-    updated_at,
-    website_url,
-  } = brewery;
+  const { name, street, city, phone, postal_code, state, website_url } =
+    brewery;
   const area = String(phone).slice(0, 3);
   const three = String(phone).slice(3, 6);
   const four = String(phone).slice(6, 10);
