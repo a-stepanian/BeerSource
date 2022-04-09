@@ -8,7 +8,6 @@ const MapPage = ({
   setIsLoading,
   setShowMapPage,
   setShowListPage,
-  setIsError,
   setShowBrewerySearchPage,
   lat,
   lng,
@@ -68,7 +67,6 @@ const MapPage = ({
         onClick={() => {
           setShowMapPage(false);
           setShowBrewerySearchPage(false);
-          setIsError(false);
           setIsLoading(false);
           setShowListPage(true);
         }}

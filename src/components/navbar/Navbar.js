@@ -6,7 +6,6 @@ const Navbar = ({
   setShowMapPage,
   setShowListPage,
   setShowBrewerySearchPage,
-  setIsError,
   setIsLoading,
   setShowRecipePage,
   showMenu,
@@ -26,7 +25,6 @@ const Navbar = ({
               setShowMapPage(false);
               setShowListPage(false);
               setShowBrewerySearchPage(true);
-              setIsError(false);
               setIsLoading(false);
               setShowRecipePage(false);
               setCity("");
@@ -42,7 +40,6 @@ const Navbar = ({
               setShowMapPage(false);
               setShowListPage(false);
               setShowBrewerySearchPage(false);
-              setIsError(false);
               setIsLoading(false);
             }}
           >
@@ -64,7 +61,6 @@ const Navbar = ({
                 setShowMapPage(false);
                 setShowListPage(false);
                 setShowBrewerySearchPage(true);
-                setIsError(false);
                 setIsLoading(false);
                 setShowRecipePage(false);
                 setShowMenu(!showMenu);
@@ -80,7 +76,6 @@ const Navbar = ({
                 setShowMapPage(false);
                 setShowListPage(false);
                 setShowBrewerySearchPage(false);
-                setIsError(false);
                 setShowMenu(!showMenu);
                 setShowRecipePage(true);
                 setIsLoading(false);
