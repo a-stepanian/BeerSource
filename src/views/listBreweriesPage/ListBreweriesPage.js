@@ -2,21 +2,21 @@ import React, { useEffect, useState } from "react";
 import BreweryCard from "../../components/breweryCard/BreweryCard";
 import "./listBreweriesPage.css";
 import { createApi } from "unsplash-js";
+import { useGlobalContext } from "../../context";
 
 const unsplash = createApi({
   accessKey: process.env.REACT_APP_UNSPLASH,
 });
 
-const ListBreweriesPage = ({
-  breweries,
-  setShowBrewerySearchPage,
-  setShowMapPage,
-  setIsLoading,
-  setShowListPage,
-  showMenu,
-  city,
-  state,
-}) => {
+const ListBreweriesPage = () => {
+  const {
+    breweries,
+    setShowBrewerySearchPage,
+    setShowMapPage,
+    setIsLoading,
+    setShowListPage,
+    city,
+  } = useGlobalContext();
   const [cityImgUrl, setCityImgUrl] = useState("");
 
   const getPhoto = async () => {

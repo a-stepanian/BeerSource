@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import "./navbar.css";
 import HamburgerMenu from "../hamburgerMenu/HamburgerMenu";
+import { useGlobalContext } from "../../context";
 
-const Navbar = ({
-  setShowMapPage,
-  setShowListPage,
-  setShowBrewerySearchPage,
-  setIsLoading,
-  setShowRecipePage,
-  showMenu,
-  setShowMenu,
-  setCity,
-  setState,
-}) => {
+const Navbar = () => {
+  const {
+    setShowMapPage,
+    setShowListPage,
+    setShowBrewerySearchPage,
+    setIsLoading,
+    setShowRecipePage,
+    setCity,
+    setState,
+  } = useGlobalContext();
+
+  const [showMenu, setShowMenu] = useState(false);
+
   return (
     <header>
       {/* Fixed Navbar */}

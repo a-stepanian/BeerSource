@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useGlobalContext } from "../../context";
 import "./brewerySearchPage.css";
 
 const usStates = [
@@ -56,26 +57,26 @@ const usStates = [
   "Wyoming",
 ];
 
-const BrewerySearchPage = ({
-  city,
-  setCity,
-  state,
-  setState,
-  setIsLoading,
-  setShowMenu,
-  setShowBrewerySearchPage,
-  setBreweries,
-  setShowListPage,
-  setShowMapPage,
-  setLat,
-  setLng,
-}) => {
+const BrewerySearchPage = () => {
+  const {
+    city,
+    setCity,
+    state,
+    setState,
+    setIsLoading,
+    setShowBrewerySearchPage,
+    setBreweries,
+    setShowListPage,
+    setShowMapPage,
+    setLat,
+    setLng,
+  } = useGlobalContext();
+
   const [isError, setIsError] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    setShowMenu(false);
     setIsError(false);
     const citySearch = city.trim().split(" ").join("_");
     const stateSearch = state.split(" ").join("_");

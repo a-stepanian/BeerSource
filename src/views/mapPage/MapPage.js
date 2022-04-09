@@ -1,19 +1,21 @@
 import React, { useState, useRef, useEffect } from "react";
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import "./mapPage.css";
+import { useGlobalContext } from "../../context";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
-const MapPage = ({
-  setIsLoading,
-  setShowMapPage,
-  setShowListPage,
-  setShowBrewerySearchPage,
-  lat,
-  lng,
-  breweries,
-  showMenu,
-}) => {
+const MapPage = () => {
+  const {
+    setIsLoading,
+    setShowMapPage,
+    setShowListPage,
+    setShowBrewerySearchPage,
+    lat,
+    lng,
+    breweries,
+  } = useGlobalContext();
+
   // from mapbox ---------------------------
   const mapContainer = useRef(null);
   const map = useRef(null);

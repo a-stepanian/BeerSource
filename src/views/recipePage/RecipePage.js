@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import "./recipePage.css";
 import BeerCard from "../../components/beerCard/BeerCard";
 import BigScreenRecipe from "../../components/bigScreenRecipe/BigScreenRecipe";
+import { useGlobalContext } from "../../context";
 
-const RecipePage = ({ setIsLoading, isLoading }) => {
+const RecipePage = () => {
+  const { setIsLoading, isLoading } = useGlobalContext();
   const [beers, setBeers] = useState([]);
   const [beerIndex, setBeerIndex] = useState(null);
   const [currentBeer, setCurrentBeer] = useState({});
