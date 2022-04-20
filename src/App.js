@@ -3,6 +3,7 @@ import ListBreweriesPage from "./views/listBreweriesPage/ListBreweriesPage";
 import BrewerySearchPage from "./views/brewerySearchPage/BrewerySearchPage";
 import MapPage from "./views/mapPage/MapPage";
 import RecipePage from "./views/recipePage/RecipePage";
+import HomePage from "./views/homePage/HomePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SharedLayout from "./views/SharedLayout";
 
@@ -11,6 +12,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/brewery-finder" element={<SharedLayout />}>
+          <Route index element={<HomePage />} />
           <Route path="search" element={<BrewerySearchPage />} />
           <Route path="map" element={<MapPage />} />
           <Route path="breweries" element={<ListBreweriesPage />} />
