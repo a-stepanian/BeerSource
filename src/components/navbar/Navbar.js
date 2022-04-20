@@ -11,29 +11,27 @@ const Navbar = () => {
   return (
     <header>
       {/* Fixed Navbar */}
-      <div className="navbar">
-        <h1 className="beerSource">&#127866;BeerSource</h1>
-        <nav className="largeScreenNavButtons">
+      <nav className="navbar">
+        <NavLink to="/brewery-finder" onClick={() => setShowMenu(false)}>
+          <h1 className="beerSource">&#127866;BeerSource</h1>
+        </NavLink>
+        <div className="largeScreenNavButtons">
           <NavLink
-            className="menuButton menuButtonBigScreen"
             to="/brewery-finder/search"
             onClick={() => {
               setCity("");
               setState("");
             }}
           >
-            Find A Brewery
+            <button className="menuButton menuButtonBigScreen">Search</button>
           </NavLink>
-          <NavLink
-            className="menuButton menuButtonBigScreen"
-            to="/brewery-finder/recipes"
-          >
-            Brew Your Own
+          <NavLink to="/brewery-finder/recipes">
+            <button className="menuButton menuButtonBigScreen">Recipes</button>
           </NavLink>
-        </nav>
+        </div>
 
         <HamburgerMenu showMenu={showMenu} setShowMenu={setShowMenu} />
-      </div>
+      </nav>
 
       {/* Mobile Collapsible Navigation Menu  */}
 
