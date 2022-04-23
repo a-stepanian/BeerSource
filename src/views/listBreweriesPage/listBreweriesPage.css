@@ -129,6 +129,8 @@
   align-items: center;
   position: fixed;
   bottom: 0;
+  text-decoration: none;
+  color: black;
 }
 .mapView:hover {
   cursor: pointer;
