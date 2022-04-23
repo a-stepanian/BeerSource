@@ -6,9 +6,9 @@ const HomePage = () => {
     <main className="homePageMain">
       <section>
         <h1>Welcome to BeerSource</h1>
-        <a href="/beersource/search">Find A Brewery</a>
+        <a href="/search">Find A Brewery</a>
         <p>or</p>
-        <a href="/beersource/recipes">Brew Your Own</a>
+        <a href="/recipes">Brew Your Own</a>
       </section>
     </main>
   );

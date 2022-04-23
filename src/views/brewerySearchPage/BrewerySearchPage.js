@@ -128,7 +128,7 @@ const BrewerySearchPage = () => {
 
     setBreweries([...breweries, ...breweries2, ...breweries3, ...breweries4]);
     setIsLoading(false);
-    navigate("/brewery-finder/map");
+    navigate("/map");
   };
 
   if (isLoading) {

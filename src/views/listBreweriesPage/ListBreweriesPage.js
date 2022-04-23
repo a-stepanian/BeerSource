@@ -47,7 +47,7 @@ const ListBreweriesPage = () => {
         <div className="empty"></div>
       </section>
 
-      <Link to="/beersource/map" className="mapView">
+      <Link to="/map" className="mapView">
         <p>&#127758; Back to Map</p>
       </Link>
     </main>
