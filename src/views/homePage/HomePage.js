@@ -7,8 +7,8 @@ const HomePage = () => {
       <section>
         <h1>Welcome to BeerSource</h1>
         <a href="/brewery-finder/search">Find A Brewery</a>
-        <h1>or</h1>
-        <a href="/brewery-finder/recipe">Brew Your Own</a>
+        <p>or</p>
+        <a href="/brewery-finder/recipes">Brew Your Own</a>
       </section>
     </main>
   );
