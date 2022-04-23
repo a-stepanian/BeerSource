@@ -12,12 +12,12 @@ const Navbar = () => {
     <header>
       {/* Fixed Navbar */}
       <nav className="navbar">
-        <NavLink to="/brewery-finder" onClick={() => setShowMenu(false)}>
+        <NavLink to="/beersource" onClick={() => setShowMenu(false)}>
           <h1 className="beerSource">&#127866;BeerSource</h1>
         </NavLink>
         <div className="largeScreenNavButtons">
           <NavLink
-            to="/brewery-finder/search"
+            to="/beersource/search"
             onClick={() => {
               setCity("");
               setState("");
@@ -25,7 +25,7 @@ const Navbar = () => {
           >
             <button className="menuButton menuButtonBigScreen">Search</button>
           </NavLink>
-          <NavLink to="/brewery-finder/recipes">
+          <NavLink to="/beersource/recipes">
             <button className="menuButton menuButtonBigScreen">Recipes</button>
           </NavLink>
         </div>
@@ -40,7 +40,7 @@ const Navbar = () => {
           <>
             <NavLink
               className="menuButton menuButtonBigScreen"
-              to="/brewery-finder/search"
+              to="/beersource/search"
               onClick={() => {
                 setCity("");
                 setState("");
@@ -51,7 +51,7 @@ const Navbar = () => {
             </NavLink>
             <NavLink
               className="menuButton menuButtonBigScreen"
-              to="/brewery-finder/recipes"
+              to="/beersource/recipes"
               onClick={() => {
                 setShowMenu(false);
               }}

@@ -71,7 +71,7 @@ const MapPage = () => {
       <div className="map">
         <div ref={mapContainer} className="map-container" />
       </div>
-      <Link to="/brewery-finder/breweries" className="list">
+      <Link to="/beersource/breweries" className="list">
         &#128196; List View
       </Link>
     </main>
