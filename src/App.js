@@ -11,7 +11,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/beersource" element={<SharedLayout />}>
+        <Route path="/" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
           <Route path="search" element={<BrewerySearchPage />} />
           <Route path="map" element={<MapPage />} />
