@@ -22,7 +22,7 @@ const MapPage = () => {
   // from mapbox ---------------------------
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [zoom, setZoom] = useState(10);
+  const [zoom, setZoom] = useState(11);
 
   useEffect(() => {
     setIsLoading(true);
