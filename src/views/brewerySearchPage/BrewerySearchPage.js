@@ -89,7 +89,7 @@ const BrewerySearchPage = () => {
     const breweries = await response.json();
 
     if (breweries.length === 0) {
-      navigate("/brewery-finder/search");
+      navigate("/search");
       setIsError(true);
       setBreweries([]);
       setIsLoading(false);
