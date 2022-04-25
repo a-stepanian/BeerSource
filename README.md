@@ -2,9 +2,9 @@
 
 ## Website
 
-Check out the website in action:
+Check out the website:
 
-https://a-stepanian.github.io/brewery-finder/
+https://beersource.herokuapp.com/
 
 ## Screenshots
 
