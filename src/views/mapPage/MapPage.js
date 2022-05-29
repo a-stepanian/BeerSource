@@ -8,16 +8,7 @@ import { Link } from "react-router-dom";
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
 const MapPage = () => {
-  const {
-    setIsLoading,
-    setShowMapPage,
-    setShowListPage,
-    setShowBrewerySearchPage,
-    lat,
-    lng,
-    isLoading,
-    breweries,
-  } = useGlobalContext();
+  const { setIsLoading, lat, lng, isLoading, breweries } = useGlobalContext();
 
   // from mapbox ---------------------------
   const mapContainer = useRef(null);

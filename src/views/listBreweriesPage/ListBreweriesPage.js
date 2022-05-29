@@ -20,6 +20,7 @@ const ListBreweriesPage = () => {
 
   useEffect(() => {
     getPhoto();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

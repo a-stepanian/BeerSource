@@ -5,7 +5,7 @@ import { useGlobalContext } from "../../context";
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
-  const { setCity, setState, setIsLoading } = useGlobalContext();
+  const { setCity, setState } = useGlobalContext();
   const [showMenu, setShowMenu] = useState(false);
 
   return (

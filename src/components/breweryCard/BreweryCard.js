@@ -12,7 +12,12 @@ const BreweryCard = ({ brewery }) => {
     <article className="breweryCard">
       <h2>{name}</h2>
       {website_url && (
-        <a className="website" href={website_url} target="_blank">
+        <a
+          className="website"
+          href={website_url}
+          target="_blank"
+          rel="noreferrer"
+        >
           &#127760; <span className="link">Website</span>
         </a>
       )}

@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./recipePage.css";
 import BeerCard from "../../components/beerCard/BeerCard";
 import BigScreenRecipe from "../../components/bigScreenRecipe/BigScreenRecipe";
-import { useGlobalContext } from "../../context";
-import Loading from "../../components/loading/Loading";
 
 const RecipePage = () => {
   const [beers, setBeers] = useState([]);
@@ -27,6 +25,7 @@ const RecipePage = () => {
   // Fetch the data when the page loads
   useEffect(() => {
     findRecipes();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Set currentBeer when user clicks on a beer card on large screens.
